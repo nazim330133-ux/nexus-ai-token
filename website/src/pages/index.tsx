@@ -188,8 +188,9 @@ export default function Home() {
     { l: "Dashboard", h: "#stats" },
     { l: "Tokenomics", h: "#tokenomics" },
     { l: "Staking", h: "#staking" },
-    { l: "Faucet", h: "#faucet" },
+    { l: "News", h: "#news" },
     { l: "Roadmap", h: "#roadmap" },
+    { l: "Audit", h: "#audit" },
     { l: "Contracts", h: "#contracts" },
   ];
 
@@ -569,6 +570,36 @@ export default function Home() {
         </R>
       </section>
 
+      <section className="section" id="news">
+        <R>
+          <div className="section-h">
+            <div className="section-tag" style={{ borderColor: "rgba(245,158,11,0.2)", color: "#f59e0b" }}>News</div>
+            <h2>Project Updates</h2>
+            <p>Latest developments and announcements about Nexus AI.</p>
+          </div>
+        </R>
+        <R>
+          <div className="news-grid">
+            {[
+              { d: "20 Jun 2026", t: "Testnet Canli!", c: "success", p: "Nexus AI token basariyla BSC Testnet'te yayinda. Staking, faucet ve PancakeSwap likiditesi aktif." },
+              { d: "19 Jun 2026", t: "Web Sitesi Yayinda", c: "info", p: "Proje web sitesi nexusai-ecosystem.vercel.app adresinde canli. TradingView grafigi, leaderboard ve audit raporu eklendi." },
+              { d: "18 Jun 2026", t: "Telegram Bot Aktif", c: "info", p: "@Nxiaibot kullanima hazir. /price, /staking, /airdrop gibi komutlarla token bilgisine aninda erisim." },
+              { d: "15 Jun 2026", t: "Akilli Kontratlar Yazildi", c: "info", p: "NexusAI Token, StakingPool ve Faucet kontratlari yazildi, test edildi ve audit edildi." },
+              { d: "1 Oct 2026", t: "Mainnet Lansmani", c: "pending", p: "Ana ag gecisi planlandi. Gercek BNB likiditesi, CoinGecko/CMC basvurusu ve airdrop kampanyasi baslayacak." },
+            ].map((n, i) => (
+              <div key={i} className={`news-card ${n.c}`}>
+                <div className="news-meta">
+                  <span className={`news-badge ${n.c}`}>{n.c === "success" ? "Canli" : n.c === "pending" ? "Plan" : "Guncelleme"}</span>
+                  <span className="news-date">{n.d}</span>
+                </div>
+                <h3 className="news-t">{n.t}</h3>
+                <p className="news-p">{n.p}</p>
+              </div>
+            ))}
+          </div>
+        </R>
+      </section>
+
       <section className="section" id="audit">
         <R>
           <div className="section-h">
@@ -917,6 +948,21 @@ export default function Home() {
         .rm-items li{font-size:13px;color:rgba(255,255,255,0.4);padding-left:16px;position:relative}
         .rm-items li::before{content:'›';position:absolute;left:4px;color:rgba(255,255,255,0.2)}
 
+        .news-grid{display:grid;grid-template-columns:1fr;gap:12px;max-width:700px;margin:0 auto}
+        @media(min-width:640px){.news-grid{grid-template-columns:1fr 1fr}}
+        .news-card{padding:20px;border-radius:14px;border:1px solid var(--border);background:var(--card);transition:all 0.3s}
+        .news-card:hover{border-color:rgba(255,255,255,0.1);transform:translateY(-2px)}
+        .news-card.success{border-color:rgba(16,185,129,0.2);background:rgba(16,185,129,0.03)}
+        .news-card.info{border-color:rgba(41,141,255,0.15);background:rgba(41,141,255,0.03)}
+        .news-card.pending{border-color:rgba(245,158,11,0.15);background:rgba(245,158,11,0.03)}
+        .news-meta{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+        .news-badge{font-size:9px;padding:2px 10px;border-radius:100px;font-family:var(--mono);text-transform:uppercase;letter-spacing:0.05em}
+        .news-badge.success{background:rgba(16,185,129,0.15);color:#10b981;border:1px solid rgba(16,185,129,0.2)}
+        .news-badge.info{background:rgba(41,141,255,0.15);color:#298dff;border:1px solid rgba(41,141,255,0.2)}
+        .news-badge.pending{background:rgba(245,158,11,0.15);color:#f59e0b;border:1px solid rgba(245,158,11,0.2)}
+        .news-date{font-size:11px;color:rgba(255,255,255,0.25);font-family:var(--mono)}
+        .news-t{font-size:15px;font-weight:600;margin-bottom:6px}
+        .news-p{font-size:12px;color:rgba(255,255,255,0.4);line-height:1.6}
         .audit-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:700px;margin:0 auto 24px}
         @media(max-width:640px){.audit-cards{grid-template-columns:1fr}}
         .audit-card{text-align:center;padding:24px 16px;border-radius:14px;border:1px solid var(--border);background:var(--card)}
