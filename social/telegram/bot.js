@@ -87,6 +87,7 @@ bot.onText(/\/start(?:\s+(.+))?/, async (msg, match) => {
     `/balance <adres> — Bakiye sorgula\n` +
     `/website — Siteye git\n` +
     `/x — Twitter/X profilimiz\n` +
+    `/satinal — Token paketleri\n` +
     `/help — Tum komutlar`,
     { parse_mode: "Markdown" }
   );
@@ -378,8 +379,26 @@ bot.onText(/\/help/, (msg) => {
     `*Linkler:*\n` +
     `/website — Siteye git\n` +
     `/x — Twitter/X profilimiz\n` +
+    `/satinal — Token paketleri\n` +
     `/start — Ana menu`,
     { parse_mode: "Markdown" }
+  );
+});
+
+bot.onText(/\/satinal/, (msg) => {
+  const chatId = msg.chat.id;
+  bot.sendMessage(chatId,
+    `🛒 *Token Paketleri*\n\n` +
+    `Size ozel BEP-20 token ekosistemi hazirliyoruz.\n\n` +
+    `*1️⃣ Temel — $200*\n` +
+    `BEP-20 Token + Audit + BscScan Dogrulama\n\n` +
+    `*2️⃣ Standart — $350* 🔥\n` +
+    `Token + Staking %%50 APY + LP + Web Sitesi + Telegram Bot\n\n` +
+    `*3️⃣ Premium — $500*\n` +
+    `Tam paket: Token + Staking + Faucet + Site + Bot + Airdrop + 1 Ay Destek\n\n` +
+    `📩 Iletisim icin /start yaz, ekibimiz size ulassin!\n` +
+    `🌐 ${WEBSITE}#services`,
+    { parse_mode: "Markdown", disable_web_page_preview: true }
   );
 });
 

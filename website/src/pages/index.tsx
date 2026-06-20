@@ -188,6 +188,7 @@ export default function Home() {
     { l: "Dashboard", h: "#stats" },
     { l: "Tokenomics", h: "#tokenomics" },
     { l: "Staking", h: "#staking" },
+    { l: "Services", h: "#services" },
     { l: "News", h: "#news" },
     { l: "Roadmap", h: "#roadmap" },
     { l: "Audit", h: "#audit" },
@@ -487,6 +488,43 @@ export default function Home() {
               <p className="lb-cta">Connect &amp; stake to join leaderboard</p>
             </div>
           </R>
+        </div>
+      </section>
+
+      <section className="section" id="services">
+        <R>
+          <div className="section-h">
+            <div className="section-tag" style={{ borderColor: "rgba(99,102,241,0.2)", color: "#818cf8" }}>Hizmetler</div>
+            <h2>Token Paketleri</h2>
+            <p>Size ozel BEP-20 token ekosistemi. Profesyonel ekip, hizli teslimat.</p>
+          </div>
+        </R>
+        <div className="pkg-grid">
+          {[
+            { n: "Temel", p: "$200", desc: "Kendi tokeninizi baslatin", f: ["BEP-20 Token Kontrati", "Akilli Kontrat Denetimi", "100M Arz", "BscScan Dogrulama", "Kaynak Kod Teslimi"] },
+            { n: "Standart", p: "$350", best: true, desc: "Token + Staking Ekosistemi", f: ["Temel Paketteki Her Sey", "Staking Pool (%50 APY)", "PancakeSwap Likidite", "Token Distribusyonu", "Web Sitesi (Dashboard)", "Telegram Bot"] },
+            { n: "Premium", p: "$500", desc: "Tam Ekosistem Cozumu", f: ["Standart Paketteki Her Sey", "Faucet Kontrati", "Airdrop Sistemi", "Otomatik Yonetici Bot", "Twitter/X Tanitimi", "1 Ay Destek"] },
+          ].map((pkg, i) => (
+            <div key={i} className={`pkg-card ${pkg.best ? "pkg-best" : ""}`}>
+              {pkg.best && <div className="pkg-badge">Populer</div>}
+              <div className="pkg-header">
+                <div className="pkg-name">{pkg.n}</div>
+                <div className="pkg-price">{pkg.p}</div>
+                <div className="pkg-desc">{pkg.desc}</div>
+              </div>
+              <div className="pkg-features">
+                {pkg.f.map((feat, j) => (
+                  <div key={j} className="pkg-feat">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" strokeWidth="2"><path d="M5 13l4 4L19 7"/></svg>
+                    {feat}
+                  </div>
+                ))}
+              </div>
+              <a href="https://t.me/Nxiaibot" target="_blank" className={`btn-primary btn-lg pkg-btn ${pkg.best ? "" : "btn-secondary"}`}>
+                Satin Al — /satinal
+              </a>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -917,6 +955,20 @@ export default function Home() {
         .empty span{font-size:12px}
         .lb-cta{text-align:center;font-size:11px;color:rgba(255,255,255,0.2);margin-top:16px}
 
+        .pkg-grid{display:grid;grid-template-columns:1fr;gap:16px;max-width:900px;margin:0 auto}
+        @media(min-width:768px){.pkg-grid{grid-template-columns:1fr 1fr 1fr}}
+        .pkg-card{padding:32px 24px;border-radius:16px;border:1px solid var(--border);background:var(--card);display:flex;flex-direction:column;position:relative;transition:all 0.3s}
+        .pkg-card:hover{border-color:rgba(255,255,255,0.12);transform:translateY(-4px)}
+        .pkg-best{border-color:rgba(99,102,241,0.3);background:linear-gradient(135deg,rgba(99,102,241,0.06),rgba(41,141,255,0.06))}
+        .pkg-best:hover{border-color:rgba(99,102,241,0.5)}
+        .pkg-badge{position:absolute;top:-10px;left:50%;transform:translateX(-50%);font-size:10px;font-weight:600;background:linear-gradient(135deg,#6366f1,#298dff);color:#fff;padding:4px 16px;border-radius:100px;text-transform:uppercase;letter-spacing:0.05em}
+        .pkg-header{text-align:center;margin-bottom:24px}
+        .pkg-name{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.4);margin-bottom:8px}
+        .pkg-price{font-size:clamp(32px,4vw,48px);font-weight:800;letter-spacing:-0.03em;margin-bottom:4px}
+        .pkg-desc{font-size:13px;color:rgba(255,255,255,0.35)}
+        .pkg-features{display:flex;flex-direction:column;gap:10px;margin-bottom:24px;flex:1}
+        .pkg-feat{display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,0.6)}
+        .pkg-btn{width:100%;justify-content:center}
         .faucet{max-width:600px;margin:0 auto;text-align:center;padding:48px 32px;border-radius:20px;border:1px solid rgba(41,141,255,0.15);background:linear-gradient(135deg,rgba(41,141,255,0.05),rgba(99,102,241,0.05));position:relative;overflow:hidden}
         .faucet::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:conic-gradient(from 0deg,transparent,rgba(41,141,255,0.03),transparent,rgba(99,102,241,0.03),transparent);animation:spin 10s linear infinite;pointer-events:none}
         @keyframes spin{to{transform:rotate(360deg)}}
