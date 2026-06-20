@@ -496,13 +496,28 @@ export default function Home() {
           <div className="section-h">
             <div className="section-tag" style={{ borderColor: "rgba(99,102,241,0.2)", color: "#818cf8" }}>Hizmetler</div>
             <h2>Token Paketleri</h2>
-            <p>Size ozel BEP-20 token ekosistemi. Profesyonel ekip, hizli teslimat.</p>
+            <p>Size ozel BEP-20 token ekosistemi. 24 saatte teslim, profesyonel kod.</p>
+          </div>
+        </R>
+        <R>
+          <div className="how-grid">
+            {[
+              { n: "1", t: "Iletisim", d: "Telegram'da @Nxiaibot'a yazin, ihtiyaclarinizi anlatin." },
+              { n: "2", t: "Teslimat", d: "24-48 saat icinde token, site ve bot hazir, yayina alinir." },
+              { n: "3", t: "Yayin", d: "Token BscScan'de, siteniz Vercel'de, botunuz Telegram'da canli." },
+            ].map((s, i) => (
+              <div key={i} className="how-card">
+                <div className="how-n">{s.n}</div>
+                <div className="how-t">{s.t}</div>
+                <div className="how-d">{s.d}</div>
+              </div>
+            ))}
           </div>
         </R>
         <div className="pkg-grid">
           {[
-            { n: "Temel", p: "$200", desc: "Kendi tokeninizi baslatin", f: ["BEP-20 Token Kontrati", "Akilli Kontrat Denetimi", "100M Arz", "BscScan Dogrulama", "Kaynak Kod Teslimi"] },
-            { n: "Standart", p: "$350", best: true, desc: "Token + Staking Ekosistemi", f: ["Temel Paketteki Her Sey", "Staking Pool (%50 APY)", "PancakeSwap Likidite", "Token Distribusyonu", "Web Sitesi (Dashboard)", "Telegram Bot"] },
+            { n: "Temel", p: "$200", desc: "Kendi tokeninizi baslatin", f: ["BEP-20 Token Kontrati", "Akilli Kontrat Denetimi", "100M Sabit Arz", "BscScan Dogrulama", "Kaynak Kod Teslimi"] },
+            { n: "Standart", p: "$350", best: true, desc: "Token + Staking Ekosistemi", f: ["Temel Paketteki Her Sey", "%50 APY Staking Pool", "PancakeSwap Likidite", "Token Distribusyonu", "Web Sitesi (Dashboard)", "Telegram Bot"] },
             { n: "Premium", p: "$500", desc: "Tam Ekosistem Cozumu", f: ["Standart Paketteki Her Sey", "Faucet Kontrati", "Airdrop Sistemi", "Otomatik Yonetici Bot", "Twitter/X Tanitimi", "1 Ay Destek"] },
           ].map((pkg, i) => (
             <div key={i} className={`pkg-card ${pkg.best ? "pkg-best" : ""}`}>
@@ -526,6 +541,21 @@ export default function Home() {
             </div>
           ))}
         </div>
+        <R>
+          <div className="ref-section">
+            <h3>Referans Projemiz</h3>
+            <div className="ref-card">
+              <div className="ref-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#298dff" strokeWidth="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </div>
+              <div className="ref-info">
+                <div className="ref-name">Nexus AI ($NXI)</div>
+                <div className="ref-p">Canli ve calisiyor — Standart paket ornegi</div>
+                <a href="https://nexusai-ecosystem.vercel.app" target="_blank" className="ref-link">siteyi gor →</a>
+              </div>
+            </div>
+          </div>
+        </R>
       </section>
 
       <section className="section" id="faucet">
@@ -969,6 +999,21 @@ export default function Home() {
         .pkg-features{display:flex;flex-direction:column;gap:10px;margin-bottom:24px;flex:1}
         .pkg-feat{display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,0.6)}
         .pkg-btn{width:100%;justify-content:center}
+        .how-grid{display:grid;grid-template-columns:1fr;gap:16px;max-width:700px;margin:0 auto 48px}
+        @media(min-width:640px){.how-grid{grid-template-columns:repeat(3,1fr)}}
+        .how-card{text-align:center;padding:24px 16px;border-radius:14px;border:1px solid var(--border);background:var(--card);transition:all 0.3s}
+        .how-card:hover{border-color:rgba(41,141,255,0.2);transform:translateY(-2px)}
+        .how-n{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#298dff,#6366f1);color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;margin:0 auto 12px}
+        .how-t{font-size:15px;font-weight:600;margin-bottom:6px}
+        .how-d{font-size:12px;color:rgba(255,255,255,0.4);line-height:1.5}
+        .ref-section{max-width:400px;margin:48px auto 0;text-align:center}
+        .ref-section h3{font-size:16px;font-weight:600;margin-bottom:16px}
+        .ref-card{display:flex;align-items:center;gap:16px;padding:20px;border-radius:14px;border:1px solid rgba(41,141,255,0.15);background:rgba(41,141,255,0.03);text-align:left;transition:all 0.3s}
+        .ref-card:hover{border-color:rgba(41,141,255,0.3)}
+        .ref-icon{width:48px;height:48px;border-radius:12px;background:rgba(41,141,255,0.1);border:1px solid rgba(41,141,255,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+        .ref-name{font-size:14px;font-weight:600;margin-bottom:2px}
+        .ref-p{font-size:11px;color:rgba(255,255,255,0.35);margin-bottom:4px}
+        .ref-link{font-size:12px;color:#298dff;font-weight:500}
         .faucet{max-width:600px;margin:0 auto;text-align:center;padding:48px 32px;border-radius:20px;border:1px solid rgba(41,141,255,0.15);background:linear-gradient(135deg,rgba(41,141,255,0.05),rgba(99,102,241,0.05));position:relative;overflow:hidden}
         .faucet::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:conic-gradient(from 0deg,transparent,rgba(41,141,255,0.03),transparent,rgba(99,102,241,0.03),transparent);animation:spin 10s linear infinite;pointer-events:none}
         @keyframes spin{to{transform:rotate(360deg)}}

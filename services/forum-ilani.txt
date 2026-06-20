@@ -1,0 +1,45 @@
+========================================
+KENDI TOKEN'INI BASLAT! BEP-20 TOKEN PAKETLERI
+========================================
+
+Merhaba! Profesyonel ekip olarak size ozel BEP-20 token ekosistemi hazirliyoruz.
+
+PAKETLER:
+
+1) TEMEL - $200
+   - BEP-20 Token kontrati
+   - 100M sabit arz
+   - Akilli kontrat denetimi (audit)
+   - BscScan dogrulama
+   - Kaynak kod teslimi
+
+2) STANDART - $350 🔥 (En populer)
+   - Temel paketteki her sey
+   + %50 APY Staking Pool
+   + PancakeSwap likidite havuzu
+   + Token distribusyonu
+   + Profesyonel web sitesi (dashboard)
+   + Telegram bot
+
+3) PREMIUM - $500
+   - Standart paketteki her sey
+   + Faucet kontrati
+   + Airdrop sistemi
+   + Otomatik yonetici bot
+   + Twitter/X tanitimi
+   + 1 ay destek
+
+NEDEN BIZ?
+✔ 21/21 guvenlik testinden gecmis kontratlar
+✔ OpenZeppelin tabanli, guvenli kod
+✔ Hizli teslimat (24-48 saat)
+✔ Kodlar size ait, GitHub'da teslim
+✔ Web sitesi Vercel'de yayinda
+
+ORNEK PROJEMIZ:
+🌐 nexusai-ecosystem.vercel.app
+🤖 @Nxiaibot
+📄 testnet.bscscan.com/address/0x3371f6F00B3ee5Cc6D7E5d8BbEc27961B772001E
+
+ILETISIM:
+Telegram: @Nxiaibot
