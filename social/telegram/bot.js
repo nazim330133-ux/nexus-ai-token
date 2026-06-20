@@ -9,6 +9,7 @@ const RPC = "https://data-seed-prebsc-1-s1.binance.org:8545/";
 const EXPLORER = "https://testnet.bscscan.com";
 const OWNER = "0x7bd3dB1509372c6343eA973b7070c9289d96455b";
 const WEBSITE = "https://nexusai-ecosystem.vercel.app";
+const X = "https://x.com/nexusai2026";
 
 const provider = new ethers.JsonRpcProvider(RPC);
 const tokenABI = ["function name() view returns (string)", "function symbol() view returns (string)", "function totalSupply() view returns (uint256)", "function balanceOf(address) view returns (uint256)", "function decimals() view returns (uint8)"];
@@ -66,6 +67,7 @@ bot.onText(/\/start/, async (msg) => {
     `/roadmap — Yol haritasi\n` +
     `/countdown — Mainnet geri sayim\n` +
     `/website — Siteye git\n` +
+    `/x — Twitter/X profilimiz\n` +
     `/balance <adres> — Bakiye sorgula\n` +
     `/help — Yardim`,
     { parse_mode: "Markdown" }
@@ -235,10 +237,16 @@ bot.onText(/\/help/, (msg) => {
     `/roadmap — Yol haritasi\n` +
     `/countdown — Mainnet geri sayim\n` +
     `/website — Siteye git\n` +
+    `/x — Twitter/X profilimiz\n` +
     `/balance <adres> — Bakiye sorgula\n` +
     `/start — Ana menu`,
     { parse_mode: "Markdown" }
   );
+});
+
+bot.onText(/\/x/, (msg) => {
+  const chatId = msg.chat.id;
+  bot.sendMessage(chatId, `🐦 *Nexus AI — X/Twitter*\n\nBizi takip edin: ${X}\n\nGuncel duyurular, gelismeler ve topluluk etkinlikleri icin.`, { parse_mode: "Markdown", disable_web_page_preview: true });
 });
 
 bot.on("polling_error", (err) => {
