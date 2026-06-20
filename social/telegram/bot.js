@@ -1,5 +1,6 @@
 const TelegramBot = require("node-telegram-bot-api");
 const { ethers } = require("ethers");
+const games = require("./games");
 
 const BOT_TOKEN = "8705502256:AAH6fCzyrQ3NQcdPoEL0qfk1ankFjWbvwjg";
 const TOKEN_ADDR = "0x3371f6F00B3ee5Cc6D7E5d8BbEc27961B772001E";
@@ -50,15 +51,32 @@ function getMainnetCountdown() {
 
 const bot = new TelegramBot(BOT_TOKEN, { polling: true });
 
-bot.onText(/\/start/, async (msg) => {
+bot.onText(/\/start(?:\s+(.+))?/, async (msg, match) => {
   const chatId = msg.chat.id;
+  const uid = String(msg.from.id);
+  const refCode = match && match[1] ? match[1].trim() : null;
+
+  if (refCode) {
+    const refUid = games.processReferral(refCode);
+    if (refUid && refUid !== uid) {
+      games.addReferral(refUid);
+      bot.sendMessage(chatId, `🎉 Davet basarili! Davet eden kisi +50 NXI kazandi.`);
+    }
+  }
+
+  games.getUser(uid);
   const info = await getTokenInfo();
   bot.sendMessage(chatId,
     `🚀 *${info.name} ($NXI)*\n\n` +
     `Topluluk blockchain tokeni — BSC'de.\n\n` +
-    `*Komutlar:*\n` +
+    `*Oyun & Kazan komutlari:*\n` +
+    `/daily — Gunluk odul (streak bonusu)\n` +
+    `/quiz — NXI bilgi yarismasi\n` +
+    `/points — Puan durumun\n` +
+    `/leaderboard — Siralamadaki yerin\n` +
+    `/referral — Davet linkin\n\n` +
+    `*Token komutlari:*\n` +
     `/info — Token bilgisi\n` +
-    `/supply — Toplam arz\n` +
     `/price — Guncel fiyat\n` +
     `/staking — Staking durumu\n` +
     `/airdrop — Airdrop bilgisi\n` +
@@ -66,10 +84,10 @@ bot.onText(/\/start/, async (msg) => {
     `/contract — Kontrat adresleri\n` +
     `/roadmap — Yol haritasi\n` +
     `/countdown — Mainnet geri sayim\n` +
+    `/balance <adres> — Bakiye sorgula\n` +
     `/website — Siteye git\n` +
     `/x — Twitter/X profilimiz\n` +
-    `/balance <adres> — Bakiye sorgula\n` +
-    `/help — Yardim`,
+    `/help — Tum komutlar`,
     { parse_mode: "Markdown" }
   );
 });
@@ -218,6 +236,120 @@ bot.onText(/\/countdown/, (msg) => {
   );
 });
 
+bot.onText(/\/daily/, (msg) => {
+  const chatId = msg.chat.id;
+  const uid = String(msg.from.id);
+  const result = games.claimDaily(uid);
+
+  let txt = result.msg;
+  if (result.claimed) {
+    const nextBonus = games.getDailyBonus(result.streak + 1);
+    txt += `\n\nYarinki bonus: ${nextBonus} NXI (${result.streak + 1} gun)`;
+  }
+  bot.sendMessage(chatId, txt, { parse_mode: "Markdown" });
+});
+
+bot.onText(/\/quiz/, (msg) => {
+  const chatId = msg.chat.id;
+  const uid = String(msg.from.id);
+  const result = games.getQuiz(uid);
+
+  if (!result.active) {
+    return bot.sendMessage(chatId, "❌ Bir hata olustu. Tekrar dene.");
+  }
+
+  const q = result.q;
+  const opts = q.o.map((o, i) => `${i + 1}) ${o}`).join("\n");
+  bot.sendMessage(chatId,
+    `🧠 *NXI Bilgi Yarismasi*\n\n` +
+    `Soru ${result.current}/${result.total}:\n\n` +
+    `${q.q}\n\n${opts}\n\n` +
+    `Cevap icin sayi gonder (1-4) veya /cancel ile iptal et`,
+    { parse_mode: "Markdown" }
+  );
+});
+
+bot.onText(/\/points/, (msg) => {
+  const chatId = msg.chat.id;
+  const uid = String(msg.from.id);
+  const u = games.getUser(uid);
+  const first = msg.from.first_name || "";
+  bot.sendMessage(chatId,
+    `🎮 *Oyun Istatistiklerin*\n\n` +
+    `Oyuncu: ${first}\n` +
+    `🎯 Toplam Puan: **${u.points} NXI**\n` +
+    `🔥 Streak: ${u.streak} gun\n` +
+    `📚 Dogru: ${u.quizCorrect}/${u.quizTotal}\n` +
+    `👥 Davet: ${u.referrals}\n\n` +
+    `Mainnet'te bu puanlar kadar NXI alacaksin!`,
+    { parse_mode: "Markdown" }
+  );
+});
+
+bot.onText(/\/leaderboard/, (msg) => {
+  const chatId = msg.chat.id;
+  const lb = games.getLeaderboard(10);
+  if (lb.length === 0) return bot.sendMessage(chatId, "Henuz oyuncu yok. /daily ile basla!");
+
+  const medals = ["🥇", "🥈", "🥉"];
+  const lines = lb.map((u, i) =>
+    `${medals[i] || "  "} ${i + 1}. ID:${u.uid.slice(0, 6)}... — ${u.points} NXI ${u.streak > 0 ? "🔥" : ""}`
+  );
+  bot.sendMessage(chatId, `🏆 *NXI Liderlik Tablosu*\n\n${lines.join("\n")}\n\nPuan kazan: /daily ve /quiz ile`, { parse_mode: "Markdown" });
+});
+
+bot.onText(/\/referral/, (msg) => {
+  const chatId = msg.chat.id;
+  const uid = String(msg.from.id);
+  const link = games.getReferralLink(uid);
+  const u = games.getUser(uid);
+  bot.sendMessage(chatId,
+    `👥 *Davet Sistemi*\n\n` +
+    `Arkadaslarini davet et, her biri icin **+50 NXI** kazan!\n\n` +
+    `📎 Linkin:\n\`${link}\`\n\n` +
+    `Toplam davet: ${u.referrals}\n\n` +
+    `Linki arkadaslarina gonder, baslasinlar /start yazsin!`,
+    { parse_mode: "Markdown" }
+  );
+});
+
+bot.onText(/\/cancel/, (msg) => {
+  const chatId = msg.chat.id;
+  const uid = String(msg.from.id);
+  const db = JSON.parse(require("fs").readFileSync(require("path").join(__dirname, "games_db.json"), "utf8").toString());
+  if (db.quiz && db.quiz[uid]) { db.quiz[uid].active = null; require("fs").writeFileSync(require("path").join(__dirname, "games_db.json"), JSON.stringify(db)); }
+  bot.sendMessage(chatId, "Quiz iptal edildi.");
+});
+
+bot.on("message", (msg) => {
+  if (!msg.text || msg.text.startsWith("/")) return;
+  const chatId = msg.chat.id;
+  const uid = String(msg.from.id);
+  const dbPath = require("path").join(__dirname, "games_db.json");
+
+  let db;
+  try { db = JSON.parse(require("fs").readFileSync(dbPath, "utf8")); } catch { return; }
+  if (!db.quiz || !db.quiz[uid] || !db.quiz[uid].active) return;
+
+  const num = parseInt(msg.text);
+  if (isNaN(num) || num < 1 || num > 4) {
+    return bot.sendMessage(chatId, "1-4 arasi bir sayi gonder.");
+  }
+
+  const q = db.quiz[uid].active;
+  const selected = q.o[num - 1];
+  const result = games.answerQuiz(uid, selected);
+
+  if (result.done) {
+    bot.sendMessage(chatId,
+      `${result.msg}\n\n🎉 Tebrikler! Tum sorulari tamamladin!\n📊 ${result.correctCount}/${result.totalCount} dogru\n💰 Toplam: ${result.total} NXI\n\n/quiz ile tekrar baslayabilirsin.`,
+      { parse_mode: "Markdown" }
+    );
+  } else {
+    bot.sendMessage(chatId, result.msg, { parse_mode: "Markdown" });
+  }
+});
+
 bot.onText(/\/website/, (msg) => {
   const chatId = msg.chat.id;
   bot.sendMessage(chatId, `🌐 ${WEBSITE}`, { disable_web_page_preview: true });
@@ -227,8 +359,14 @@ bot.onText(/\/help/, (msg) => {
   const chatId = msg.chat.id;
   bot.sendMessage(chatId,
     `🤖 *Nexus AI Bot - Komutlar*\n\n` +
+    `*Oyun & Kazan:*\n` +
+    `/daily — Gunluk odul\n` +
+    `/quiz — Bilgi yarismasi\n` +
+    `/points — Puan durumun\n` +
+    `/leaderboard — Siralama\n` +
+    `/referral — Davet linki\n\n` +
+    `*Token:*\n` +
     `/info — Token bilgisi\n` +
-    `/supply — Toplam arz\n` +
     `/price — Guncel fiyat\n` +
     `/staking — Staking durumu\n` +
     `/airdrop — Airdrop bilgisi\n` +
@@ -236,9 +374,10 @@ bot.onText(/\/help/, (msg) => {
     `/contract — Kontrat adresleri\n` +
     `/roadmap — Yol haritasi\n` +
     `/countdown — Mainnet geri sayim\n` +
+    `/balance <adres> — Bakiye sorgula\n\n` +
+    `*Linkler:*\n` +
     `/website — Siteye git\n` +
     `/x — Twitter/X profilimiz\n` +
-    `/balance <adres> — Bakiye sorgula\n` +
     `/start — Ana menu`,
     { parse_mode: "Markdown" }
   );
