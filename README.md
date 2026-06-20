@@ -37,4 +37,4 @@ All contracts pass static analysis. See [Whitepaper](WHITEPAPER.md) for details.
 
 ## Community
 - **Telegram Bot:** https://t.me/Nxiaibot
-- **X (Twitter):** https://x.com/nexusai_nxi
+- **X (Twitter):** https://x.com/nexusai2026

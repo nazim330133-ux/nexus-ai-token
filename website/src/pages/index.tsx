@@ -203,7 +203,12 @@ export default function Home() {
         <div className="nav-inner">
           <div className="nav-l">
             <div className="logo">
-              <div className="logo-icon">N</div>
+              <div className="logo-icon">
+                <svg width="16" height="16" viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.3)" strokeWidth="6"/>
+                  <text x="50" y="58" textAnchor="middle" fill="white" fontSize="44" fontWeight="700" fontFamily="system-ui">N</text>
+                </svg>
+              </div>
               <span>Nexus AI</span>
               <span className="badge">$NXI</span>
             </div>
