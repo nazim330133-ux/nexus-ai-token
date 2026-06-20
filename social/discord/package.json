@@ -1,0 +1,10 @@
+{
+  "name": "nexus-ai-discord-bot",
+  "version": "1.0.0",
+  "description": "Nexus AI ($NXI) Discord Bot",
+  "main": "bot.js",
+  "dependencies": {
+    "discord.js": "^14.0.0",
+    "ethers": "^6.0.0"
+  }
+}

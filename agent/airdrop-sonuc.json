@@ -1,0 +1,67 @@
+{
+  "total": 10,
+  "sent": 10,
+  "failed": 0,
+  "results": [
+    {
+      "address": "0x643fE7fA112818488E86074e56855819B1fEf0C0",
+      "amount": "100",
+      "status": "OK",
+      "tx": "0xd99f334fae65578f3da48827a47fd310a3e3c3e04594866aa3e72d17631bf310"
+    },
+    {
+      "address": "0x04fa17dBcF24F7a3D8cD8a43664E6dE3CfF8C5d6",
+      "amount": "100",
+      "status": "OK",
+      "tx": "0xfbd53db06f3527f9f8148a8e54d18de4d4de889dfe8180eac22ac39277f8326a"
+    },
+    {
+      "address": "0xF3Ea6caC97b89F95614822c0041c6EE40AEba7B8",
+      "amount": "100",
+      "status": "OK",
+      "tx": "0xeb249df7a775d3e210250fd0ef2514668e4fb842650f208a30ee5c8f1bb62682"
+    },
+    {
+      "address": "0x359B85C4D140565A3f59a03262661f22B9FCcB40",
+      "amount": "100",
+      "status": "OK",
+      "tx": "0x17b0ad4fca93be26984e8bbcb8f3e013d7847a89418b951dee05a6feae45bff1"
+    },
+    {
+      "address": "0xB7E1589D2791359893a21Bb13E475a36930cD513",
+      "amount": "100",
+      "status": "OK",
+      "tx": "0xff5cc9c8d49ff5f89c6c9a80c2dcf038c80376bfbd169852b3cdd4d85522cbca"
+    },
+    {
+      "address": "0xe39fD43FA5C3b91Fd79a9e2483e9D76633a8d97B",
+      "amount": "100",
+      "status": "OK",
+      "tx": "0xcb34b9294259336e1f34f0d2514c167d9e2745cdc83294cd18cb4f2d5a287aa6"
+    },
+    {
+      "address": "0x55f53B055BCaF2313Bce9B882637df99Cc835fF9",
+      "amount": "100",
+      "status": "OK",
+      "tx": "0xe1fb9625ad09f06c0d3e0e2d923379bbd66f474338a67fb94b0dfa19826e21b2"
+    },
+    {
+      "address": "0x19A0FDEBE9B6289197781AABefE815028586De58",
+      "amount": "100",
+      "status": "OK",
+      "tx": "0x8ba5c1d1e2688eb1d6dcbe8bd98c02e1c3a6d16bb8c5561cbdfcb473c894b5f4"
+    },
+    {
+      "address": "0x45aaB3EDc9005CdD8530c4371718944e196F9eB6",
+      "amount": "100",
+      "status": "OK",
+      "tx": "0xa046cd289c5fa27c3e4f7f09c0a1550c50acb1567b161acc700c6fc7ea8c0a49"
+    },
+    {
+      "address": "0x3bC7B1C1C8497229E296A4512F36d7eC155EB618",
+      "amount": "100",
+      "status": "OK",
+      "tx": "0x4ab350e455c0281b709bef29546e82ee82b8aa816c3eb029fb3a3180beb50060"
+    }
+  ]
+}

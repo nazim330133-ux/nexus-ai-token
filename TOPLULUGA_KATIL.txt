@@ -1,0 +1,34 @@
+========================================
+  NEXUS AI ($NXI) - TOPLULUGA KATIL
+========================================
+
+MERHABA! Nexus AI testnet topluluguna hos geldin.
+Sana ozel 100 NXI hediye! 🎉
+
+ADIM 1: MASK'i Ayarla
+  1. MetaMask'i ac
+  2. Ag ekle: BSC Testnet
+     - Ag Adi: BSC Testnet
+     - RPC: https://data-seed-prebsc-1-s1.binance.org:8545/
+     - Chain ID: 97
+     - Para: tBNB
+     - Explorer: https://testnet.bscscan.com
+
+ADIM 2: Token'i Ekle
+  1. MetaMask > Token Ekle > Ozgun Token Ekle
+  2. Token adresi: 0x3371f6F00B3ee5Cc6D7E5d8BbEc27961B772001E
+  3. Sembol: NXI
+  4. Decimal: 18
+
+ADIM 3: 100 NXI Al (Faucet)
+  Tarayicinda ac: C:\Users\HP\Desktop\nexus-ai-website\index.html
+  Cuzdani bagla > "100 NXI Talep Et" butonuna bas
+
+ADIM 4: Stake Et (Kazanmaya Basla)
+  StakingPool: 0x6409896461688E0a25cF8Ee5DD3f3CC0a9ba0c3c
+  %50 APY ile otomatik kazan
+
+BSCScan'de Gor:
+  Token:    https://testnet.bscscan.com/address/0x3371f6F00B3ee5Cc6D7E5d8BbEc27961B772001E
+  Staking:  https://testnet.bscscan.com/address/0x6409896461688E0a25cF8Ee5DD3f3CC0a9ba0c3c
+  Likidite: https://testnet.bscscan.com/address/0xBcFe9a8498c4b702c739BE67012D18c48d220F28

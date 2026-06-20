@@ -1,0 +1,10 @@
+{
+  "name": "nexus-ai-telegram-bot",
+  "version": "1.0.0",
+  "description": "Nexus AI ($NXI) Telegram Bot",
+  "main": "bot.js",
+  "dependencies": {
+    "node-telegram-bot-api": "^0.66.0",
+    "ethers": "^6.0.0"
+  }
+}

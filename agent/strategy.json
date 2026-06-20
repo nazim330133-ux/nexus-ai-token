@@ -1,0 +1,44 @@
+{
+  "_comment": "Agent davranisini buradan kontrol eder. Degistirmek icin bu dosyayi duzenle.",
+  "autonomous": true,
+  "checkIntervalSeconds": 300,
+  "strategies": {
+    "claimRewards": {
+      "enabled": true,
+      "intervalSeconds": 3600,
+      "wallets": ["ecosystem", "development", "teamVesting"]
+    },
+    "restakeRewards": {
+      "enabled": false,
+      "minRewardNXI": 100
+    },
+    "gasMonitor": {
+      "enabled": true,
+      "minBNB": 0.005,
+      "topUpAmountBNB": 0.01,
+      "sourceWallet": "owner",
+      "targetWallets": ["liquidity", "ecosystem", "development", "teamVesting", "airdrop"]
+    },
+    "liquidityHealth": {
+      "enabled": true,
+      "intervalSeconds": 7200,
+      "minNXIinPool": 1000000
+    },
+    "stakingRewardRate": {
+      "enabled": true,
+      "intervalSeconds": 86400,
+      "targetAPY": 50
+    },
+    "faucetRefill": {
+      "enabled": true,
+      "intervalSeconds": 21600,
+      "minNXI": 1000,
+      "refillAmount": 5000,
+      "sourceWallet": "airdrop"
+    },
+    "statusReport": {
+      "enabled": true,
+      "intervalSeconds": 3600
+    }
+  }
+}
