@@ -85,7 +85,7 @@ function claimDaily(uid) {
     result.streak = u.streak;
     result.bonus = bonus;
     result.total = u.points;
-    result.msg = `✅ Gunluk odul alindi!\n\n🔥 Streak: ${u.streak} gun\n🎁 Kazanilan: ${bonus} NXI\n📦 Toplam: ${u.total} NXI`;
+    result.msg = `✅ Gunluk odul alindi!\n\n🔥 Streak: ${u.streak} gun\n🎁 Kazanilan: ${bonus} NXI\n📦 Toplam: ${u.points} NXI`;
   });
 
   return result;

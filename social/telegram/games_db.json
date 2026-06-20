@@ -1,0 +1,15 @@
+{
+  "users": {
+    "test123": {
+      "points": 10,
+      "streak": 1,
+      "lastDaily": "2026-06-20",
+      "quizCorrect": 0,
+      "quizTotal": 0,
+      "referrals": 0,
+      "joined": 1781985130411
+    }
+  },
+  "referrals": {},
+  "quiz": {}
+}
