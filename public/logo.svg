@@ -1,34 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#06060a"/>
-      <stop offset="100%" stop-color="#0a0a1a"/>
-    </linearGradient>
-    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#298dff"/>
-      <stop offset="50%" stop-color="#6366f1"/>
-      <stop offset="100%" stop-color="#a855f7"/>
-    </linearGradient>
-    <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#298dff" stop-opacity="0.3"/>
-      <stop offset="100%" stop-color="#6366f1" stop-opacity="0.1"/>
+      <stop offset="50%" stop-color="#4f7cff"/>
+      <stop offset="100%" stop-color="#6366f1"/>
     </linearGradient>
   </defs>
-  <rect width="400" height="400" rx="60" fill="url(#bg)" stroke="rgba(41,141,255,0.15)" stroke-width="2"/>
-  <circle cx="200" cy="200" r="130" fill="none" stroke="url(#accent)" stroke-width="2" opacity="0.3"/>
-  <circle cx="200" cy="200" r="100" fill="url(#glow)"/>
-  <circle cx="200" cy="200" r="100" fill="none" stroke="url(#accent)" stroke-width="2.5"/>
-  <line x1="200" y1="100" x2="200" y2="150" stroke="url(#accent)" stroke-width="3" stroke-linecap="round"/>
-  <line x1="200" y1="250" x2="200" y2="300" stroke="url(#accent)" stroke-width="3" stroke-linecap="round"/>
-  <line x1="100" y1="200" x2="150" y2="200" stroke="url(#accent)" stroke-width="3" stroke-linecap="round"/>
-  <line x1="250" y1="200" x2="300" y2="200" stroke="url(#accent)" stroke-width="3" stroke-linecap="round"/>
-  <line x1="129" y1="129" x2="165" y2="165" stroke="url(#accent)" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
-  <line x1="235" y1="235" x2="271" y2="271" stroke="url(#accent)" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
-  <line x1="129" y1="271" x2="165" y2="235" stroke="url(#accent)" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
-  <line x1="235" y1="165" x2="271" y2="129" stroke="url(#accent)" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
-  <circle cx="200" cy="200" r="35" fill="url(#accent)" opacity="0.15"/>
-  <text x="200" y="212" text-anchor="middle" fill="white" font-size="48" font-weight="700" font-family="system-ui, sans-serif" letter-spacing="-1">N</text>
-  <text x="200" y="330" text-anchor="middle" fill="white" font-size="18" font-weight="600" font-family="monospace" letter-spacing="2">NEXUS AI</text>
-  <text x="200" y="356" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="13" font-family="monospace" letter-spacing="1">$NXI</text>
-  <circle cx="200" cy="200" r="130" fill="none" stroke="url(#accent)" stroke-width="0.5" stroke-dasharray="4 8" opacity="0.2"/>
+  <rect width="400" height="400" rx="56" fill="#06060a" stroke="rgba(41,141,255,0.12)" stroke-width="1.5"/>
+  <circle cx="200" cy="170" r="70" fill="none" stroke="url(#accentGrad)" stroke-width="1.5" opacity="0.3"/>
+  <circle cx="200" cy="170" r="48" fill="none" stroke="url(#accentGrad)" stroke-width="3"/>
+  <circle cx="200" cy="170" r="48" fill="url(#accentGrad)" opacity="0.08"/>
+  <line x1="200" y1="122" x2="200" y2="140" stroke="url(#accentGrad)" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/>
+  <line x1="200" y1="200" x2="200" y2="218" stroke="url(#accentGrad)" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/>
+  <line x1="152" y1="170" x2="170" y2="170" stroke="url(#accentGrad)" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/>
+  <line x1="230" y1="170" x2="248" y2="170" stroke="url(#accentGrad)" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/>
+  <text x="200" y="176" text-anchor="middle" fill="white" font-size="36" font-weight="700" font-family="system-ui, -apple-system, sans-serif" letter-spacing="-0.5">N</text>
+  <text x="200" y="300" text-anchor="middle" fill="white" font-size="22" font-weight="700" font-family="system-ui, -apple-system, sans-serif" letter-spacing="3">NEXUS</text>
+  <text x="200" y="325" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="12" font-family="monospace" letter-spacing="4">AI</text>
 </svg>
