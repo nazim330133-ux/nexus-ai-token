@@ -204,9 +204,10 @@ export default function Home() {
           <div className="nav-l">
             <div className="logo">
               <div className="logo-icon">
-                <svg width="16" height="16" viewBox="0 0 100 100">
-                  <circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.3)" strokeWidth="6"/>
-                  <text x="50" y="58" textAnchor="middle" fill="white" fontSize="44" fontWeight="700" fontFamily="system-ui">N</text>
+                <svg width="18" height="18" viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,0.3)" strokeWidth="5"/>
+                  <circle cx="50" cy="50" r="30" fill="none" stroke="rgba(255,255,255,0.12)" strokeWidth="1.5"/>
+                  <text x="50" y="57" textAnchor="middle" fill="white" fontSize="38" fontWeight="700" fontFamily="system-ui">N</text>
                 </svg>
               </div>
               <span>Nexus AI</span>
@@ -790,7 +791,12 @@ export default function Home() {
           <div className="footer-main">
             <div>
               <div className="footer-logo">
-                <div className="logo-icon">N</div>
+                <div className="logo-icon">
+                  <svg width="18" height="18" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,0.3)" strokeWidth="5"/>
+                    <text x="50" y="57" textAnchor="middle" fill="white" fontSize="38" fontWeight="700" fontFamily="system-ui">N</text>
+                  </svg>
+                </div>
                 <span>Nexus AI</span>
               </div>
               <p>Building the next-generation community-driven blockchain economy on BNB Smart Chain.</p>
