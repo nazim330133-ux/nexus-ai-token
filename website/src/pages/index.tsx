@@ -189,6 +189,7 @@ export default function Home() {
     { l: "Tokenomics", h: "#tokenomics" },
     { l: "Staking", h: "#staking" },
     { l: "Services", h: "#services" },
+    { l: "FAQ", h: "#faq" },
     { l: "News", h: "#news" },
     { l: "Roadmap", h: "#roadmap" },
     { l: "Audit", h: "#audit" },
@@ -562,6 +563,31 @@ export default function Home() {
             </div>
           </div>
         </R>
+      </section>
+
+      <section className="section" id="faq">
+        <R>
+          <div className="section-h">
+            <div className="section-tag" style={{ borderColor: "rgba(16,185,129,0.2)", color: "#10b981" }}>SSS</div>
+            <h2>Sik Sorulan Sorular</h2>
+            <p>Token paketleri ve proje hakkinda merak edilenler.</p>
+          </div>
+        </R>
+        <div className="faq-list">
+          {[
+            { q: "Token paketi nedir?", a: "BEP-20 tokeninizi biz olusturuyor, akilli kontratlari yaziyor, web sitenizi ve Telegram botunuzu hazirliyoruz. Siz sadece projenizi tanitiyorsunuz." },
+            { q: "Teslimat ne kadar surer?", a: "Temel paket 24 saat, Standart 48 saat, Premium 72 saat icinde teslim edilir." },
+            { q: "Kodlar bana ait mi?", a: "Evet. Tum kaynak kod size teslim edilir, GitHub reposuna yuklenir. Tamamen sizin kontrolunuzde." },
+            { q: "Mainnet mi Testnet mi?", a: "Testnet'te baslatip test ediyoruz. Mainnet deploy isterseniz ek ucret alinmaz, sadece gas ucretini siz karsilarsiniz (~$15-20)." },
+            { q: "Garanti veriyor musunuz?", a: "Kontratlar OpenZeppelin tabanlidir, audit edilmistir. Kod calisir ve guvenlidir. Teslimat sonrasi 7 gun destek veriyoruz." },
+            { q: "Nasil odeme yapabilirim?", a: "BNB, USDT (BEP-20), veya banka havalesi (TL) ile odeyebilirsiniz." },
+          ].map((f, i) => (
+            <details key={i} className="faq-item">
+              <summary>{f.q}</summary>
+              <p>{f.a}</p>
+            </details>
+          ))}
+        </div>
       </section>
 
       <section className="section" id="faucet">
@@ -1025,6 +1051,14 @@ export default function Home() {
         .ref-name{font-size:14px;font-weight:600;margin-bottom:2px}
         .ref-p{font-size:11px;color:rgba(255,255,255,0.35);margin-bottom:4px}
         .ref-link{font-size:12px;color:#298dff;font-weight:500}
+        .faq-list{max-width:600px;margin:0 auto;display:flex;flex-direction:column;gap:8px}
+        .faq-item{border-radius:12px;border:1px solid var(--border);background:var(--card);overflow:hidden;transition:all 0.3s}
+        .faq-item:hover{border-color:rgba(41,141,255,0.15)}
+        .faq-item summary{padding:16px 20px;cursor:pointer;font-size:14px;font-weight:500;color:rgba(255,255,255,0.85);display:flex;align-items:center;gap:12px;list-style:none;transition:color 0.2s}
+        .faq-item summary::-webkit-details-marker{display:none}
+        .faq-item summary::before{content:'';width:20px;height:20px;border-radius:6px;background:rgba(41,141,255,0.1);border:1px solid rgba(41,141,255,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23298dff' stroke-width='3'%3E%3Cpath d='M12 5v14M5 12h14'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center}
+        .faq-item[open] summary::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23298dff' stroke-width='3'%3E%3Cpath d='M5 12h14'/%3E%3C/svg%3E")}
+        .faq-item p{padding:0 20px 16px 52px;font-size:13px;color:rgba(255,255,255,0.5);line-height:1.6}
         .faucet{max-width:600px;margin:0 auto;text-align:center;padding:48px 32px;border-radius:20px;border:1px solid rgba(41,141,255,0.15);background:linear-gradient(135deg,rgba(41,141,255,0.05),rgba(99,102,241,0.05));position:relative;overflow:hidden}
         .faucet::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:conic-gradient(from 0deg,transparent,rgba(41,141,255,0.03),transparent,rgba(99,102,241,0.03),transparent);animation:spin 10s linear infinite;pointer-events:none}
         @keyframes spin{to{transform:rotate(360deg)}}

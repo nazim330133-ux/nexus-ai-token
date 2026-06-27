@@ -87,6 +87,7 @@ bot.onText(/\/start(?:\s+(.+))?/, async (msg, match) => {
     `/balance <adres> — Bakiye sorgula\n` +
     `/website — Siteye git\n` +
     `/x — Twitter/X profilimiz\n` +
+    `/faq — Sik sorulan sorular\n` +
     `/satinal — Token paketleri\n` +
     `/help — Tum komutlar`,
     { parse_mode: "Markdown" }
@@ -379,9 +380,25 @@ bot.onText(/\/help/, (msg) => {
     `*Linkler:*\n` +
     `/website — Siteye git\n` +
     `/x — Twitter/X profilimiz\n` +
+    `/faq — Sik sorulan sorular\n` +
     `/satinal — Token paketleri\n` +
     `/start — Ana menu`,
     { parse_mode: "Markdown" }
+  );
+});
+
+bot.onText(/\/faq/, (msg) => {
+  const chatId = msg.chat.id;
+  bot.sendMessage(chatId,
+    `❓ *Sik Sorulan Sorular*\n\n` +
+    `*Token paketi nedir?*\nBEP-20 tokeninizi biz olusturuyor, kontratlari yaziyor, sitenizi ve botunuzu hazirliyoruz.\n\n` +
+    `*Teslimat ne kadar surer?*\nTemel 24 saat, Standart 48 saat, Premium 72 saat.\n\n` +
+    `*Kodlar bana ait mi?*\nEvet. Tum kaynak kod size teslim edilir.\n\n` +
+    `*Mainnet mi Testnet mi?*\nTestnet'te baslatip test ediyoruz. Mainnet deploy ucretsiz (sadece gas ucreti ~$15).\n\n` +
+    `*Garanti?*\nKontratlar OpenZeppelin tabanli, audit edilmis. Teslim sonrasi 7 gun destek.\n\n` +
+    `*Nasil odeme?*\nBNB, USDT (BEP-20) veya banka havalesi (TL).\n\n` +
+    `Daha fazla: ${WEBSITE}#faq`,
+    { parse_mode: "Markdown", disable_web_page_preview: true }
   );
 });
 
