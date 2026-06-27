@@ -14,7 +14,7 @@
       "streak": 1,
       "lastDaily": "2026-06-20",
       "quizCorrect": 0,
-      "quizTotal": 1,
+      "quizTotal": 2,
       "referrals": 0,
       "joined": 1781985260339
     }
@@ -22,17 +22,8 @@
   "referrals": {},
   "quiz": {
     "5747776148": {
-      "index": 1,
-      "active": {
-        "q": "NXI toplam arzi ne kadar?",
-        "a": "100",
-        "o": [
-          "10 milyon",
-          "100 milyon",
-          "1 milyar",
-          "500 milyon"
-        ]
-      }
+      "index": 2,
+      "active": null
     }
   }
 }

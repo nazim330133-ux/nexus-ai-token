@@ -387,6 +387,61 @@ bot.onText(/\/help/, (msg) => {
   );
 });
 
+const OWNER_ID = "8705502256";
+
+bot.onText(/\/admin(?:\s+(.+))?/, (msg, match) => {
+  const chatId = msg.chat.id;
+  const uid = String(msg.from.id);
+  if (uid !== OWNER_ID) return bot.sendMessage(chatId, "❌ Bu komut sadece sahip icindir.");
+
+  const args = match && match[1] ? match[1].trim().toLowerCase() : null;
+
+  if (!args) {
+    const db = require("fs").existsSync(require("path").join(__dirname, "games_db.json")) ? JSON.parse(require("fs").readFileSync(require("path").join(__dirname, "games_db.json"), "utf8")) : { users: {} };
+    const ucount = Object.keys(db.users).length;
+    const totalP = Object.values(db.users).reduce((s, u) => s + u.points, 0);
+    const totalR = Object.values(db.users).reduce((s, u) => s + u.referrals, 0);
+    return bot.sendMessage(chatId,
+      `🔐 *Admin Paneli*\n\n` +
+      `👥 Kullanici: ${ucount}\n` +
+      `💰 Toplam Puan: ${totalP} NXI\n` +
+      `👥 Toplam Davet: ${totalR}\n\n` +
+      `*Komutlar:*\n` +
+      `/admin stats — Detayli istatistik\n` +
+      `/admin broadcast <mesaj> — Herkese duyuru`,
+      { parse_mode: "Markdown" }
+    );
+  }
+
+  if (args === "stats") {
+    const db = require("fs").existsSync(require("path").join(__dirname, "games_db.json")) ? JSON.parse(require("fs").readFileSync(require("path").join(__dirname, "games_db.json"), "utf8")) : { users: {} };
+    const users = Object.entries(db.users).sort((a, b) => b[1].points - a[1].points);
+    let txt = `📊 *Detayli Istatistikler*\n\n`;
+    txt += `Toplam Kullanici: ${users.length}\n`;
+    txt += `Toplam Puan: ${users.reduce((s, u) => s + u[1].points, 0)} NXI\n`;
+    txt += `Toplam Quiz: ${users.reduce((s, u) => s + u[1].quizTotal, 0)}\n`;
+    txt += `Toplam Davet: ${users.reduce((s, u) => s + u[1].referrals, 0)}\n\n`;
+    txt += `*Liderler:*\n`;
+    users.slice(0, 5).forEach((u, i) => {
+      txt += `${i + 1}. ID:${u[0].slice(0, 8)}... — ${u[1].points} NXI\n`;
+    });
+    return bot.sendMessage(chatId, txt, { parse_mode: "Markdown" });
+  }
+
+  if (args.startsWith("broadcast ")) {
+    const msgText = args.replace("broadcast ", "");
+    if (!msgText) return bot.sendMessage(chatId, "Mesaj yaz: /admin broadcast <mesaj>");
+    const db = require("fs").existsSync(require("path").join(__dirname, "games_db.json")) ? JSON.parse(require("fs").readFileSync(require("path").join(__dirname, "games_db.json"), "utf8")) : { users: {} };
+    let sent = 0;
+    for (const uid of Object.keys(db.users)) {
+      try { bot.sendMessage(uid, `📢 *Duyuru*\n\n${msgText}`, { parse_mode: "Markdown" }); sent++; } catch {}
+    }
+    return bot.sendMessage(chatId, `✅ ${sent} kullaniciya mesaj gonderildi.`);
+  }
+
+  bot.sendMessage(chatId, "❌ Bilinmeyen komut. /admin yaz.");
+});
+
 bot.onText(/\/faq/, (msg) => {
   const chatId = msg.chat.id;
   bot.sendMessage(chatId,
