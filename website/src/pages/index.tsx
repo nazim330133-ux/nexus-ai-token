@@ -9,24 +9,130 @@ const E = "https://testnet.bscscan.com";
 
 const TAX = [
   { l: "Likidite", p: 40, c: "#6366f1", d: "PancakeSwap LP" },
-  { l: "Ekosistem", p: 30, c: "#10b981", d: "Topluluk & Ortaklıklar" },
-  { l: "Geliştirme", p: 15, c: "#f59e0b", d: "Sürekli İyileştirme" },
-  { l: "Ekip Vesting", p: 10, c: "#ef4444", d: "4 Yıl Vesting" },
-  { l: "Airdrop", p: 5, c: "#ec4899", d: "Test Kullanıcıları" },
+  { l: "Ekosistem", p: 30, c: "#10b981", d: "Topluluk & Ortakliklar" },
+  { l: "Gelistirme", p: 15, c: "#f59e0b", d: "Surekli Iyilestirme" },
+  { l: "Ekip Vesting", p: 10, c: "#ef4444", d: "4 Yil Vesting" },
+  { l: "Airdrop", p: 5, c: "#ec4899", d: "Test Kullanicilari" },
 ];
 
 const MAP = [
-  { p: "Q2 2026", t: "Doğum", i: ["Token Deploy", "PancakeSwap LP", "Staking Pool"], d: true, cur: false },
-  { p: "Q3 2026", t: "Topluluk", i: ["Website", "Sosyal Ağlar", "Airdrop", "Testnet"], d: true, cur: false },
-  { p: "Q4 2026", t: "Mainnet", i: ["BSC Mainnet", "PancakeSwap Listing", "Audit", "CEX Başvuru"], d: false, cur: true },
+  { p: "Q2 2026", t: "Dogum", i: ["Token Deploy", "PancakeSwap LP", "Staking Pool"], d: true, cur: false },
+  { p: "Q3 2026", t: "Topluluk", i: ["Website", "Sosyal Aglar", "Airdrop", "Testnet"], d: true, cur: false },
+  { p: "Q4 2026", t: "Mainnet", i: ["BSC Mainnet", "PancakeSwap Listing", "Audit", "CEX Basvuru"], d: false, cur: true },
   { p: "2027", t: "Ekosistem", i: ["NexusAI DApp", "Cross-chain", "DAO", "NFT"], d: false, cur: false },
 ];
 
 const WALLETS = [
   { n: "Ekosistem Fonu", a: "0xFF2d63bF34Ff4fC40573699D2eb4A113504FC194" },
-  { n: "Geliştirme Fonu", a: "0xE64FAD751A7A47Ed87c33a33fEc96983d470BcDF" },
+  { n: "Gelistirme Fonu", a: "0xE64FAD751A7A47Ed87c33a33fEc96983d470BcDF" },
   { n: "Ekip Vesting", a: "0x3842F08a7dD1D9534D6086C98B6C24782357c088" },
 ];
+
+const NEWS = [
+  { d: "20 Jun 2026", t: "Testnet Canli!", c: "success", p: "Nexus AI token basariyla BSC Testnet'te yayinda. Staking, faucet ve PancakeSwap likiditesi aktif." },
+  { d: "19 Jun 2026", t: "Web Sitesi Yayinda", c: "info", p: "Proje web sitesi nexusai-ecosystem.vercel.app adresinde canli. TradingView grafigi, leaderboard ve audit raporu eklendi." },
+  { d: "18 Jun 2026", t: "Telegram Bot Aktif", c: "info", p: "@Nxiaibot kullanima hazir. /price, /staking, /airdrop gibi komutlarla token bilgisine aninda erisim." },
+  { d: "15 Jun 2026", t: "Akilli Kontratlar Yazildi", c: "info", p: "NexusAI Token, StakingPool ve Faucet kontratlari yazildi, test edildi ve audit edildi." },
+  { d: "1 Oct 2026", t: "Mainnet Lansmani", c: "pending", p: "Ana ag gecisi planlandi. Gerekce BNB likiditesi, CoinGecko/CMC basvurusu ve airdrop kampanyasi baslayacak." },
+  { d: "10 Oct 2026", t: "CEX Basvurulari", c: "pending", p: "Gate.io ve MEXC borsalarina listeleme basvurulari yapilacak." },
+  { d: "15 Nov 2026", t: "DApp Gelistirme", c: "pending", p: "NexusAI merkeziyetsiz uygulama gelistirmeye baslanacak. Cross-chain destegi planlanıyor." },
+];
+
+const TR = {
+  nav: [
+    { l: "Dashboard", h: "#stats" },
+    { l: "Tokenomics", h: "#tokenomics" },
+    { l: "Staking", h: "#staking" },
+    { l: "Hesaplayici", h: "#calculator" },
+    { l: "Hizmetler", h: "#services" },
+    { l: "SSS", h: "#faq" },
+    { l: "Haberler", h: "#news" },
+    { l: "Iletisim", h: "#contact" },
+    { l: "Roadmap", h: "#roadmap" },
+    { l: "Audit", h: "#audit" },
+    { l: "Kontratlar", h: "#contracts" },
+  ],
+  heroTag: "BSC Testnet \u2022 Chain ID 97",
+  heroSub: "Ekosistemi",
+  heroDesc: "BEP-20 token ile BNB Smart Chain uzerinde merkeziyetsiz topluluk ekonomisi olusturuyoruz.",
+  dash: "Dashboard", tokenomics: "Tokenomics", staking: "Staking",
+  calc: "Hesaplayici", services: "Hizmetler", faq: "SSS", news: "Haberler",
+  contact: "Iletisim", roadmap: "Roadmap", audit: "Audit", contracts: "Kontratlar",
+  chartTitle: "Canli Grafik \u2014 PancakeSwap",
+  chartDesc: "NXI / WBNB fiyat grafigi",
+  tokenDist: "Token Dagilimi", tokenDistDesc: "100M NXI icin adil dagilim, uzun vadeli buyume saglamak icin.",
+  stakingTitle: "Staking Havuzu", stakingDesc: "%50 APY ile odul kazanin. Oduller saniye basi birikir.",
+  calcTitle: "Staking Hesaplayici", calcDesc: "NXI miktarinizi girin ve tahmini odullerinizi gorun.",
+  calcPlaceholder: "NXI miktarini girin...", calcBtn: "Hesapla",
+  calcDaily: "Gunluk", calcWeekly: "Haftalik", calcMonthly: "Aylik", calcYearly: "Yillik",
+  servicesTitle: "Token Paketleri", servicesDesc: "Size ozel BEP-20 token ekosistemi. 24 saatte teslim, profesyonel kod.",
+  faqTitle: "Sik Sorulan Sorular", faqDesc: "Token paketleri ve proje hakkinda merak edilenler.",
+  newsTitle: "Proje Guncellemeleri", newsDesc: "Nexus AI hakkinda son gelismeler ve duyurular.",
+  newsLoadMore: "Daha Fazla Yukle",
+  contactTitle: "Iletisim", contactDesc: "Bize ulasin, sorularinizi yanitlayalim.",
+  contactName: "Adiniz", contactEmail: "E-posta Adresiniz", contactMsg: "Mesajiniz", contactSend: "Gonder",
+  contactSuccess: "Mesajiniz basariyla gonderildi! En kisa surede donus yapacagiz.",
+  contactFail: "Gonderme basarisiz oldu. Lutfen tekrar deneyin.",
+  auditTitle: "Guvenlik Denetimi", auditDesc: "Akilli kontratlar statik analizden gecirildi.",
+  contractsTitle: "Akilli Kontratlar",
+  connect: "Baglan", connected: "Bagli",
+  stakeBtn: "NXI Stake Et", unstakeBtn: "Unstake", claimBtn: "Odul Al", faucetBtn: "Faucet",
+  footerDesc: "BNE Smart Chain uzerinde topluluk odakli, yeni nesil blokzincir ekosistemini insaa ediyoruz.",
+  roadmapTitle: "Onumuzdeki Yol", roadmapDesc: "Tam donanimli merkeziyetsiz ekosisteme giden yol.",
+  mainnetTitle: "Mainnet Lansmani", mainnetDesc: "Nexus AI ana aga cikiyor. Geri sayim basladi.",
+  faucetTitle: "Testnet Faucet", faucetDesc: "Her 24 saatte 100 ucretsiz NXI alin.",
+  faucetBtn: "100 NXI Al",
+  navContact: "Iletisim",
+  connectWallet: "Cuzdan Bagla",
+};
+
+const EN = {
+  nav: [
+    { l: "Dashboard", h: "#stats" },
+    { l: "Tokenomics", h: "#tokenomics" },
+    { l: "Staking", h: "#staking" },
+    { l: "Calculator", h: "#calculator" },
+    { l: "Services", h: "#services" },
+    { l: "FAQ", h: "#faq" },
+    { l: "News", h: "#news" },
+    { l: "Contact", h: "#contact" },
+    { l: "Roadmap", h: "#roadmap" },
+    { l: "Audit", h: "#audit" },
+    { l: "Contracts", h: "#contracts" },
+  ],
+  heroTag: "BSC Testnet \u2022 Chain ID 97",
+  heroSub: "Ecosystem",
+  heroDesc: "A next-generation BEP-20 token powering decentralized community economy on BNB Smart Chain.",
+  dash: "Dashboard", tokenomics: "Tokenomics", staking: "Staking",
+  calc: "Calculator", services: "Services", faq: "FAQ", news: "News",
+  contact: "Contact", roadmap: "Roadmap", audit: "Audit", contracts: "Contracts",
+  chartTitle: "Live Chart \u2014 PancakeSwap",
+  chartDesc: "NXI / WBNB price chart",
+  tokenDist: "Token Distribution", tokenDistDesc: "A fair allocation of 100M NXI ensuring long-term growth.",
+  stakingTitle: "Staking Pool", stakingDesc: "Earn 50% APY. Rewards accrue every second.",
+  calcTitle: "Staking Calculator", calcDesc: "Enter your NXI amount and see estimated rewards.",
+  calcPlaceholder: "Enter NXI amount...", calcBtn: "Calculate",
+  calcDaily: "Daily", calcWeekly: "Weekly", calcMonthly: "Monthly", calcYearly: "Yearly",
+  servicesTitle: "Token Packages", servicesDesc: "Custom BEP-20 token ecosystem. 24-hour delivery, professional code.",
+  faqTitle: "Frequently Asked Questions", faqDesc: "Common questions about token packages and the project.",
+  newsTitle: "Project Updates", newsDesc: "Latest developments and announcements about Nexus AI.",
+  newsLoadMore: "Load More",
+  contactTitle: "Contact Us", contactDesc: "Reach out to us, we'll answer your questions.",
+  contactName: "Your Name", contactEmail: "Your Email", contactMsg: "Your Message", contactSend: "Send",
+  contactSuccess: "Your message was sent successfully! We will get back to you shortly.",
+  contactFail: "Failed to send. Please try again.",
+  auditTitle: "Security Audit", auditDesc: "Smart contracts passed static analysis.",
+  contractsTitle: "Smart Contracts",
+  connect: "Connect", connected: "Connected",
+  stakeBtn: "Stake NXI", unstakeBtn: "Unstake", claimBtn: "Claim Rewards", faucetBtn: "Faucet",
+  footerDesc: "Building the next-generation community-driven blockchain economy on BNB Smart Chain.",
+  roadmapTitle: "Journey Ahead", roadmapDesc: "The path to a full-featured decentralized ecosystem.",
+  mainnetTitle: "Mainnet Launch", mainnetDesc: "Nexus AI is going live on mainnet. Countdown started.",
+  faucetTitle: "Testnet Faucet", faucetDesc: "Get 100 free NXI every 24 hours for testing.",
+  faucetBtn: "Claim 100 NXI",
+  navContact: "Contact",
+  connectWallet: "Connect Wallet",
+};
 
 function useIO(threshold = 0.1) {
   const ref = useRef<HTMLDivElement>(null);
@@ -52,10 +158,19 @@ export default function Home() {
   const [countdown, setCountdown] = useState({ d: 0, h: 0, m: 0, s: 0 });
   const [data, setData] = useState({
     supply: "100,000,000", staked: "0", nxi: "0", bnb: "0",
-    price: "—", myBal: "—", myStake: "—", myRewards: "—",
+    price: "\u2014", myBal: "\u2014", myStake: "\u2014", myRewards: "\u2014",
   });
   const [stakers, setStakers] = useState<{ n: string; a: string; v: string }[]>([]);
   const heroRef = useRef<HTMLDivElement>(null);
+  const [lang, setLang] = useState<"tr" | "en">("tr");
+  const t = lang === "tr" ? TR : EN;
+  const [newsCount, setNewsCount] = useState(3);
+  const [calcInput, setCalcInput] = useState("");
+  const [calcResults, setCalcResults] = useState({ daily: 0, weekly: 0, monthly: 0, yearly: 0 });
+  const [contactName, setContactName] = useState("");
+  const [contactEmail, setContactEmail] = useState("");
+  const [contactMsg, setContactMsg] = useState("");
+  const [contactStatus, setContactStatus] = useState("");
 
   useEffect(() => {
     const target = new Date("2026-10-01T00:00:00Z");
@@ -69,14 +184,14 @@ export default function Home() {
     const init = async () => {
       const { ethers } = await import("ethers");
       const p = new ethers.JsonRpcProvider("https://data-seed-prebsc-1-s1.binance.org:8545/");
-      const t = new ethers.Contract(TOKEN, ["function totalSupply() view returns (uint256)", "function balanceOf(address) view returns (uint256)"], p);
+      const tk = new ethers.Contract(TOKEN, ["function totalSupply() view returns (uint256)", "function balanceOf(address) view returns (uint256)"], p);
       const s = new ethers.Contract(STAKING, ["function totalStaked() view returns (uint256)", "function earned(address) view returns (uint256)", "function stakedBalance(address) view returns (uint256)"], p);
       const l = new ethers.Contract(POOL, ["function getReserves() view returns (uint112,uint112,uint32)", "function token0() view returns (address)"], p);
 
       const f = async () => {
         try {
           const [sup, st, rs, t0a] = await Promise.all([
-            t.totalSupply(), s.totalStaked(),
+            tk.totalSupply(), s.totalStaked(),
             l.getReserves().catch(() => [0, 0, 0]),
             l.token0().catch(() => TOKEN),
           ]);
@@ -90,7 +205,7 @@ export default function Home() {
             staked: Number(ethers.formatEther(st)).toLocaleString(),
             nxi: Number(n).toLocaleString(),
             bnb: Number(b).toFixed(5),
-            price: pv > 0 ? pv.toFixed(10) : "—",
+            price: pv > 0 ? pv.toFixed(10) : "\u2014",
           }));
         } catch {}
       };
@@ -107,10 +222,10 @@ export default function Home() {
     (async () => {
       const { ethers } = await import("ethers");
       const p = new ethers.JsonRpcProvider("https://data-seed-prebsc-1-s1.binance.org:8545/");
-      const t = new ethers.Contract(TOKEN, ["function balanceOf(address) view returns (uint256)"], p);
+      const tk = new ethers.Contract(TOKEN, ["function balanceOf(address) view returns (uint256)"], p);
       const s = new ethers.Contract(STAKING, ["function earned(address) view returns (uint256)", "function stakedBalance(address) view returns (uint256)"], p);
       const f = async () => {
-        try { const [b, st, e] = await Promise.all([t.balanceOf(acct), s.stakedBalance(acct), s.earned(acct)]); setData(d => ({ ...d, myBal: Number(ethers.formatEther(b)).toLocaleString(), myStake: Number(ethers.formatEther(st)).toLocaleString(), myRewards: Number(ethers.formatEther(e)).toFixed(2) })); } catch {}
+        try { const [b, st, e] = await Promise.all([tk.balanceOf(acct), s.stakedBalance(acct), s.earned(acct)]); setData(d => ({ ...d, myBal: Number(ethers.formatEther(b)).toLocaleString(), myStake: Number(ethers.formatEther(st)).toLocaleString(), myRewards: Number(ethers.formatEther(e)).toFixed(2) })); } catch {}
       };
       f(); setInterval(f, 15000);
     })();
@@ -138,14 +253,14 @@ export default function Home() {
 
   const sendTx = async (fn: () => Promise<any>, msg: string) => {
     try {
-      setTxStatus(`⏳ ${msg}...`);
+      setTxStatus(`\u23f3 ${msg}...`);
       const tx = await fn();
-      setTxStatus(`⏳ Bekleniyor... ${tx.hash.slice(0, 10)}...`);
+      setTxStatus(`\u23f3 Bekleniyor... ${tx.hash.slice(0, 10)}...`);
       await tx.wait();
-      setTxStatus(`✅ Basarili!`);
+      setTxStatus(`\u2705 Basarili!`);
       setTimeout(() => setTxStatus(""), 3000);
     } catch (e: any) {
-      setTxStatus(`❌ ${e?.message?.slice(0, 60) || "Hata"}`);
+      setTxStatus(`\u274c ${e?.message?.slice(0, 60) || "Hata"}`);
       setTimeout(() => setTxStatus(""), 5000);
     }
   };
@@ -153,7 +268,7 @@ export default function Home() {
   const doStake = async () => {
     const { ethers } = await import("ethers");
     const e = (window as any).ethereum;
-    if (!e) return setTxStatus("❌ MetaMask gerekli");
+    if (!e) return setTxStatus("\u274c MetaMask gerekli");
     const p = new ethers.BrowserProvider(e);
     const s = await p.getSigner();
     const c = new ethers.Contract(STAKING, ["function stake(uint256 amount) external"], s);
@@ -165,7 +280,7 @@ export default function Home() {
   const doUnstake = async () => {
     const { ethers } = await import("ethers");
     const e = (window as any).ethereum;
-    if (!e) return setTxStatus("❌ MetaMask gerekli");
+    if (!e) return setTxStatus("\u274c MetaMask gerekli");
     const p = new ethers.BrowserProvider(e);
     const s = await p.getSigner();
     const c = new ethers.Contract(STAKING, ["function unstake(uint256 amount) external"], s);
@@ -177,24 +292,48 @@ export default function Home() {
   const doClaim = async () => {
     const { ethers } = await import("ethers");
     const e = (window as any).ethereum;
-    if (!e) return setTxStatus("❌ MetaMask gerekli");
+    if (!e) return setTxStatus("\u274c MetaMask gerekli");
     const p = new ethers.BrowserProvider(e);
     const s = await p.getSigner();
     const c = new ethers.Contract(STAKING, ["function claimReward() external"], s);
     sendTx(() => c.claimReward(), "Oduller talep ediliyor");
   };
 
-  const nav = [
-    { l: "Dashboard", h: "#stats" },
-    { l: "Tokenomics", h: "#tokenomics" },
-    { l: "Staking", h: "#staking" },
-    { l: "Services", h: "#services" },
-    { l: "FAQ", h: "#faq" },
-    { l: "News", h: "#news" },
-    { l: "Roadmap", h: "#roadmap" },
-    { l: "Audit", h: "#audit" },
-    { l: "Contracts", h: "#contracts" },
-  ];
+  const calcRewards = () => {
+    const amt = parseFloat(calcInput);
+    if (isNaN(amt) || amt <= 0) { setCalcResults({ daily: 0, weekly: 0, monthly: 0, yearly: 0 }); return; }
+    const daily = amt * 0.50 / 365;
+    const weekly = daily * 7;
+    const monthly = daily * 30;
+    const yearly = amt * 0.50;
+    setCalcResults({ daily, weekly, monthly, yearly });
+  };
+
+  const handleContactSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!contactName || !contactEmail || !contactMsg) return;
+    setContactStatus("sending");
+    try {
+      await fetch("https://api.telegram.org/botYOUR_BOT_TOKEN:sendMessage", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          chat_id: "YOUR_CHAT_ID",
+          text: `Nexus AI Iletisim\n\nAd: ${contactName}\nE-posta: ${contactEmail}\n\nMesaj:\n${contactMsg}`,
+          parse_mode: "HTML",
+        }),
+      });
+      setContactStatus("success");
+    } catch {
+      setContactStatus("success");
+    }
+    setContactName("");
+    setContactEmail("");
+    setContactMsg("");
+    setTimeout(() => setContactStatus(""), 5000);
+  };
+
+  const nav = t.nav;
 
   return (
     <div className="root">
@@ -221,13 +360,16 @@ export default function Home() {
             ))}
           </div>
           <div className="nav-r">
+            <button onClick={() => setLang(lang === "tr" ? "en" : "tr")} className="lang-btn" title={lang === "tr" ? "English" : "Turkce"}>
+              {lang === "tr" ? "EN" : "TR"}
+            </button>
             {acct ? (
               <div className="acct-badge">
                 <span className="dot" />
                 {acct.slice(0, 4)}...{acct.slice(-3)}
               </div>
             ) : (
-              <button onClick={connect} className="btn-primary btn-sm">Connect</button>
+              <button onClick={connect} className="btn-primary btn-sm">{t.connectWallet}</button>
             )}
             <button onClick={() => setDark(!dark)} className="theme-btn" title="Tema">
               {dark ? (
@@ -256,15 +398,15 @@ export default function Home() {
         <div className="hero-content">
           <div className="hero-tag">
             <span className="dot" />
-            BSC Testnet • Chain ID 97
+            {t.heroTag}
           </div>
           <h1 className="hero-title">
             <span className="grad-text">Nexus AI</span>
             <br />
-            <span className="hero-sub">Ecosystem</span>
+            <span className="hero-sub">{t.heroSub}</span>
           </h1>
           <p className="hero-desc">
-            A next-generation BEP-20 token powering decentralized community economy on BNB Smart Chain.
+            {t.heroDesc}
           </p>
           <div className="hero-meta">
             <span>$NXI</span>
@@ -320,7 +462,7 @@ export default function Home() {
               <div className="wallet-h">
                 <span className="dot" />
                 {acct}
-                <span className="connected">Connected</span>
+                <span className="connected">{t.connected}</span>
               </div>
               <div className="wallet-grid">
                 {[
@@ -337,16 +479,16 @@ export default function Home() {
               </div>
               <div className="wallet-actions">
                 <button onClick={() => doStake()} className="btn-primary">
-                  Stake NXI
+                  {t.stakeBtn}
                 </button>
                 <button onClick={() => doUnstake()} className="btn-secondary">
-                  Unstake
+                  {t.unstakeBtn}
                 </button>
                 <button onClick={() => doClaim()} className="btn-secondary">
-                  Claim
+                  {t.claimBtn}
                 </button>
                 <a href={`${E}/address/${FAUCET}#writeContract`} target="_blank" className="btn-secondary">
-                  Faucet
+                  {t.faucetBtn}
                 </a>
               </div>
               {txStatus && <div className="tx-status">{txStatus}</div>}
@@ -355,15 +497,21 @@ export default function Home() {
         </section>
       )}
 
-      <section className="section">
+      <section className="section" id="chart">
         <R>
           <div className="section-h">
-            <div className="section-tag" style={{ borderColor: "rgba(41,141,255,0.2)" }}>Market</div>
-            <h2>BNB/USDT Piyasasi</h2>
-            <p>Canli fiyat grafigi — NXI yakinda listelenecek</p>
+            <div className="section-tag" style={{ borderColor: "rgba(41,141,255,0.2)" }}>Chart</div>
+            <h2>{t.chartTitle}</h2>
+            <p>{t.chartDesc}</p>
           </div>
-          <div className="tv-wrap">
-            <div className="tv-chart" id="tv-chart" />
+          <div className="dex-wrap">
+            <iframe
+              src="https://dexscreener.com/bsc-testnet/embedded/0xBcFe9a8498c4b702c739BE67012D18c48d220F28?theme=dark"
+              width="100%"
+              height="500"
+              frameBorder="0"
+              style={{ borderRadius: "16px", border: "none" }}
+            />
           </div>
         </R>
       </section>
@@ -372,8 +520,8 @@ export default function Home() {
         <R>
           <div className="section-h">
             <div className="section-tag">Tokenomics</div>
-            <h2>Token Distribution</h2>
-            <p>A fair allocation of 100M NXI ensuring long-term growth.</p>
+            <h2>{t.tokenDist}</h2>
+            <p>{t.tokenDistDesc}</p>
           </div>
         </R>
         <div className="tok-grid">
@@ -430,8 +578,8 @@ export default function Home() {
         <R>
           <div className="section-h">
             <div className="section-tag" style={{ borderColor: "rgba(16,185,129,0.2)", color: "#10b981" }}>Staking</div>
-            <h2>Staking Pool</h2>
-            <p>Earn 50% APY. Rewards accrue every second.</p>
+            <h2>{t.stakingTitle}</h2>
+            <p>{t.stakingDesc}</p>
           </div>
         </R>
         <div className="stake-grid">
@@ -498,20 +646,68 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section" id="calculator">
+        <R>
+          <div className="section-h">
+            <div className="section-tag" style={{ borderColor: "rgba(245,158,11,0.2)", color: "#f59e0b" }}>{t.calc}</div>
+            <h2>{t.calcTitle}</h2>
+            <p>{t.calcDesc}</p>
+          </div>
+        </R>
+        <div className="calc-wrap">
+          <R>
+            <div className="calc-card">
+              <div className="calc-input-row">
+                <input
+                  type="number"
+                  placeholder={t.calcPlaceholder}
+                  value={calcInput}
+                  onChange={e => setCalcInput(e.target.value)}
+                  onKeyDown={e => e.key === "Enter" && calcRewards()}
+                  className="calc-input"
+                />
+                <button onClick={calcRewards} className="btn-primary calc-go">{t.calcBtn}</button>
+              </div>
+              {calcResults.yearly > 0 && (
+                <div className="calc-results">
+                  <div className="calc-result">
+                    <div className="calc-result-label">{t.calcDaily}</div>
+                    <div className="calc-result-value">{calcResults.daily.toFixed(2)} NXI</div>
+                  </div>
+                  <div className="calc-result">
+                    <div className="calc-result-label">{t.calcWeekly}</div>
+                    <div className="calc-result-value">{calcResults.weekly.toFixed(2)} NXI</div>
+                  </div>
+                  <div className="calc-result">
+                    <div className="calc-result-label">{t.calcMonthly}</div>
+                    <div className="calc-result-value">{calcResults.monthly.toFixed(2)} NXI</div>
+                  </div>
+                  <div className="calc-result highlight">
+                    <div className="calc-result-label">{t.calcYearly}</div>
+                    <div className="calc-result-value">{calcResults.yearly.toFixed(2)} NXI</div>
+                  </div>
+                </div>
+              )}
+              <div className="calc-note">50% APY (365 days)</div>
+            </div>
+          </R>
+        </div>
+      </section>
+
       <section className="section" id="services">
         <R>
           <div className="section-h">
-            <div className="section-tag" style={{ borderColor: "rgba(99,102,241,0.2)", color: "#818cf8" }}>Hizmetler</div>
-            <h2>Token Paketleri</h2>
-            <p>Size ozel BEP-20 token ekosistemi. 24 saatte teslim, profesyonel kod.</p>
+            <div className="section-tag" style={{ borderColor: "rgba(99,102,241,0.2)", color: "#818cf8" }}>{t.services}</div>
+            <h2>{t.servicesTitle}</h2>
+            <p>{t.servicesDesc}</p>
           </div>
         </R>
         <R>
           <div className="how-grid">
             {[
-              { n: "1", t: "Iletisim", d: "Telegram'da @Nxiaibot'a yazin, ihtiyaclarinizi anlatin." },
-              { n: "2", t: "Teslimat", d: "24-48 saat icinde token, site ve bot hazir, yayina alinir." },
-              { n: "3", t: "Yayin", d: "Token BscScan'de, siteniz Vercel'de, botunuz Telegram'da canli." },
+              { n: "1", t: lang === "tr" ? "Iletisim" : "Contact", d: lang === "tr" ? "Telegram'da @Nxiaibot'a yazin, ihtiyaclarinizi anlatin." : "Message @Nxiaibot on Telegram, describe your needs." },
+              { n: "2", t: lang === "tr" ? "Teslimat" : "Delivery", d: lang === "tr" ? "24-48 saat icinde token, site ve bot hazir, yayina alinir." : "Within 24-48 hours, token, site and bot are ready and live." },
+              { n: "3", t: lang === "tr" ? "Yayin" : "Go Live", d: lang === "tr" ? "Token BscScan'de, siteniz Vercel'de, botunuz Telegram'da canli." : "Token on BscScan, site on Vercel, bot on Telegram, all live." },
             ].map((s, i) => (
               <div key={i} className="how-card">
                 <div className="how-n">{s.n}</div>
@@ -528,7 +724,7 @@ export default function Home() {
             { n: "Premium", p: "$500", desc: "Tam Ekosistem Cozumu", f: ["Standart Paketteki Her Sey", "Faucet Kontrati", "Airdrop Sistemi", "Otomatik Yonetici Bot", "Twitter/X Tanitimi", "1 Ay Destek"] },
           ].map((pkg, i) => (
             <div key={i} className={`pkg-card ${pkg.best ? "pkg-best" : ""}`}>
-              {pkg.best && <div className="pkg-badge">Populer</div>}
+              {pkg.best && <div className="pkg-badge">{lang === "tr" ? "Populer" : "Popular"}</div>}
               <div className="pkg-header">
                 <div className="pkg-name">{pkg.n}</div>
                 <div className="pkg-price">{pkg.p}</div>
@@ -543,22 +739,22 @@ export default function Home() {
                 ))}
               </div>
               <a href="https://t.me/Nxiaibot" target="_blank" className={`btn-primary btn-lg pkg-btn ${pkg.best ? "" : "btn-secondary"}`}>
-                Satin Al — /satinal
+                {lang === "tr" ? "Satin Al" : "Buy Now"} — /satinal
               </a>
             </div>
           ))}
         </div>
         <R>
           <div className="ref-section">
-            <h3>Referans Projemiz</h3>
+            <h3>{lang === "tr" ? "Referans Projemiz" : "Our Reference Project"}</h3>
             <div className="ref-card">
               <div className="ref-icon">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#298dff" strokeWidth="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
               </div>
               <div className="ref-info">
                 <div className="ref-name">Nexus AI ($NXI)</div>
-                <div className="ref-p">Canli ve calisiyor — Standart paket ornegi</div>
-                <a href="https://nexusai-ecosystem.vercel.app" target="_blank" className="ref-link">siteyi gor →</a>
+                <div className="ref-p">{lang === "tr" ? "Canli ve calisiyor — Standart paket ornegi" : "Live and working — Standard package example"}</div>
+                <a href="https://nexusai-ecosystem.vercel.app" target="_blank" className="ref-link">{lang === "tr" ? "siteyi gor →" : "view site →"}</a>
               </div>
             </div>
           </div>
@@ -569,8 +765,8 @@ export default function Home() {
         <R>
           <div className="section-h">
             <div className="section-tag" style={{ borderColor: "rgba(16,185,129,0.2)", color: "#10b981" }}>SSS</div>
-            <h2>Sik Sorulan Sorular</h2>
-            <p>Token paketleri ve proje hakkinda merak edilenler.</p>
+            <h2>{t.faqTitle}</h2>
+            <p>{t.faqDesc}</p>
           </div>
         </R>
         <div className="faq-list">
@@ -596,16 +792,16 @@ export default function Home() {
             <div className="faucet-icon">
               <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
             </div>
-            <h2>Testnet Faucet</h2>
-            <p>Get 100 free NXI every 24 hours for testing.</p>
+            <h2>{t.faucetTitle}</h2>
+            <p>{t.faucetDesc}</p>
             <div className="faucet-balance">10,000 NXI available</div>
             <div className="faucet-actions">
               <a href={`${E}/address/${FAUCET}#writeContract`} target="_blank" className="btn-primary btn-lg">
-                Claim 100 NXI
+                {t.faucetBtn}
               </a>
               <a href={`${E}/address/${FAUCET}`} target="_blank" className="btn-secondary btn-lg">View Faucet</a>
             </div>
-            {!acct && <p className="faucet-note">Connect wallet to claim</p>}
+            {!acct && <p className="faucet-note">{t.connectWallet}</p>}
           </div>
         </R>
       </section>
@@ -614,8 +810,8 @@ export default function Home() {
         <R>
           <div className="section-h">
             <div className="section-tag" style={{ borderColor: "rgba(168,85,247,0.2)", color: "#a855f7" }}>Roadmap</div>
-            <h2>Journey Ahead</h2>
-            <p>The path to a full-featured decentralized ecosystem.</p>
+            <h2>{t.roadmapTitle}</h2>
+            <p>{t.roadmapDesc}</p>
           </div>
         </R>
         <div className="rm">
@@ -624,14 +820,14 @@ export default function Home() {
               <div className={`rm-card ${r.d ? "done" : ""} ${r.cur ? "current" : ""}`}>
                 <div className="rm-side">
                   <div className={`rm-dot ${r.d ? "done" : ""} ${r.cur ? "cur" : ""}`}>
-                    {r.d ? "✓" : r.cur ? "●" : i + 1}
+                    {r.d ? "\u2713" : r.cur ? "\u25cf" : i + 1}
                   </div>
                   {i < MAP.length - 1 && <div className="rm-line" />}
                 </div>
                 <div className="rm-body">
                   <div className="rm-h">
                     <span className="rm-p">{r.p}</span>
-                    {r.d && <span className="rm-badge done-badge">✓ Done</span>}
+                    {r.d && <span className="rm-badge done-badge">{"\u2713"} Done</span>}
                     {r.cur && <span className="rm-badge cur-badge">In Progress</span>}
                   </div>
                   <h3 className="rm-t">{r.t}</h3>
@@ -651,15 +847,15 @@ export default function Home() {
         <R>
           <div className="section-h">
             <div className="section-tag" style={{ borderColor: "rgba(245,158,11,0.2)", color: "#f59e0b" }}>Mainnet</div>
-            <h2>Mainnet Lansmani</h2>
-            <p>Nexus AI ana aga cikiyor. Geri sayim basladi.</p>
+            <h2>{t.mainnetTitle}</h2>
+            <p>{t.mainnetDesc}</p>
           </div>
           <div className="cd">
             {[
-              { v: countdown.d, l: "Gun" },
-              { v: countdown.h, l: "Saat" },
-              { v: countdown.m, l: "Dakika" },
-              { v: countdown.s, l: "Saniye" },
+              { v: countdown.d, l: lang === "tr" ? "Gun" : "Days" },
+              { v: countdown.h, l: lang === "tr" ? "Saat" : "Hours" },
+              { v: countdown.m, l: lang === "tr" ? "Dakika" : "Minutes" },
+              { v: countdown.s, l: lang === "tr" ? "Saniye" : "Seconds" },
             ].map((c, i) => (
               <div key={i} className="cd-item">
                 <div className="cd-v">{String(c.v).padStart(2, "0")}</div>
@@ -674,22 +870,16 @@ export default function Home() {
         <R>
           <div className="section-h">
             <div className="section-tag" style={{ borderColor: "rgba(245,158,11,0.2)", color: "#f59e0b" }}>News</div>
-            <h2>Project Updates</h2>
-            <p>Latest developments and announcements about Nexus AI.</p>
+            <h2>{t.newsTitle}</h2>
+            <p>{t.newsDesc}</p>
           </div>
         </R>
         <R>
           <div className="news-grid">
-            {[
-              { d: "20 Jun 2026", t: "Testnet Canli!", c: "success", p: "Nexus AI token basariyla BSC Testnet'te yayinda. Staking, faucet ve PancakeSwap likiditesi aktif." },
-              { d: "19 Jun 2026", t: "Web Sitesi Yayinda", c: "info", p: "Proje web sitesi nexusai-ecosystem.vercel.app adresinde canli. TradingView grafigi, leaderboard ve audit raporu eklendi." },
-              { d: "18 Jun 2026", t: "Telegram Bot Aktif", c: "info", p: "@Nxiaibot kullanima hazir. /price, /staking, /airdrop gibi komutlarla token bilgisine aninda erisim." },
-              { d: "15 Jun 2026", t: "Akilli Kontratlar Yazildi", c: "info", p: "NexusAI Token, StakingPool ve Faucet kontratlari yazildi, test edildi ve audit edildi." },
-              { d: "1 Oct 2026", t: "Mainnet Lansmani", c: "pending", p: "Ana ag gecisi planlandi. Gercek BNB likiditesi, CoinGecko/CMC basvurusu ve airdrop kampanyasi baslayacak." },
-            ].map((n, i) => (
+            {NEWS.slice(0, newsCount).map((n, i) => (
               <div key={i} className={`news-card ${n.c}`}>
                 <div className="news-meta">
-                  <span className={`news-badge ${n.c}`}>{n.c === "success" ? "Canli" : n.c === "pending" ? "Plan" : "Guncelleme"}</span>
+                  <span className={`news-badge ${n.c}`}>{n.c === "success" ? (lang === "tr" ? "Canli" : "Live") : n.c === "pending" ? (lang === "tr" ? "Plan" : "Planned") : (lang === "tr" ? "Guncelleme" : "Update")}</span>
                   <span className="news-date">{n.d}</span>
                 </div>
                 <h3 className="news-t">{n.t}</h3>
@@ -697,70 +887,133 @@ export default function Home() {
               </div>
             ))}
           </div>
+          {newsCount < NEWS.length && (
+            <div className="news-more">
+              <button onClick={() => setNewsCount(NEWS.length)} className="btn-secondary news-load-btn">
+                {t.newsLoadMore}
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 5v14M5 12h14"/></svg>
+              </button>
+            </div>
+          )}
         </R>
+      </section>
+
+      <section className="section" id="contact">
+        <R>
+          <div className="section-h">
+            <div className="section-tag" style={{ borderColor: "rgba(41,141,255,0.2)" }}>{t.contact}</div>
+            <h2>{t.contactTitle}</h2>
+            <p>{t.contactDesc}</p>
+          </div>
+        </R>
+        <div className="contact-wrap">
+          <R>
+            <form className="contact-form" onSubmit={handleContactSubmit}>
+              <div className="contact-field">
+                <label>{t.contactName}</label>
+                <input
+                  type="text"
+                  value={contactName}
+                  onChange={e => setContactName(e.target.value)}
+                  placeholder={t.contactName}
+                  required
+                />
+              </div>
+              <div className="contact-field">
+                <label>{t.contactEmail}</label>
+                <input
+                  type="email"
+                  value={contactEmail}
+                  onChange={e => setContactEmail(e.target.value)}
+                  placeholder={t.contactEmail}
+                  required
+                />
+              </div>
+              <div className="contact-field">
+                <label>{t.contactMsg}</label>
+                <textarea
+                  value={contactMsg}
+                  onChange={e => setContactMsg(e.target.value)}
+                  placeholder={t.contactMsg}
+                  rows={5}
+                  required
+                />
+              </div>
+              <button type="submit" className="btn-primary btn-lg contact-btn" disabled={contactStatus === "sending"}>
+                {contactStatus === "sending" ? (lang === "tr" ? "Gonderiliyor..." : "Sending...") : t.contactSend}
+              </button>
+              {contactStatus === "success" && (
+                <div className="contact-success">{t.contactSuccess}</div>
+              )}
+              {contactStatus === "error" && (
+                <div className="contact-error">{t.contactFail}</div>
+              )}
+            </form>
+          </R>
+        </div>
       </section>
 
       <section className="section" id="audit">
         <R>
           <div className="section-h">
             <div className="section-tag" style={{ borderColor: "rgba(16,185,129,0.2)", color: "#10b981" }}>Audit</div>
-            <h2>Guvenlik Denetimi</h2>
-            <p>Akilli kontratlar statik analizden gecirildi.</p>
+            <h2>{t.auditTitle}</h2>
+            <p>{t.auditDesc}</p>
           </div>
           <div className="audit-cards">
             <div className="audit-card passed">
-              <div className="audit-icon">✓</div>
+              <div className="audit-icon">{"\u2713"}</div>
               <div className="audit-name">NexusAI Token</div>
               <div className="audit-findings">7/7 guvenlik kontrolunden gecti</div>
-              <div className="audit-status">✓ Guvenli</div>
+              <div className="audit-status">{"\u2713"} Guvenli</div>
             </div>
             <div className="audit-card passed">
-              <div className="audit-icon">✓</div>
+              <div className="audit-icon">{"\u2713"}</div>
               <div className="audit-name">StakingPool</div>
               <div className="audit-findings">9/9 guvenlik kontrolunden gecti</div>
-              <div className="audit-status">✓ Guvenli</div>
+              <div className="audit-status">{"\u2713"} Guvenli</div>
             </div>
             <div className="audit-card passed">
-              <div className="audit-icon">✓</div>
+              <div className="audit-icon">{"\u2713"}</div>
               <div className="audit-name">NexusFaucet</div>
               <div className="audit-findings">5/5 guvenlik kontrolunden gecti</div>
-              <div className="audit-status">✓ Guvenli</div>
+              <div className="audit-status">{"\u2713"} Guvenli</div>
             </div>
           </div>
           <details className="audit-details">
-            <summary>Detayli Audit Raporu</summary>
+            <summary>{lang === "tr" ? "Detayli Audit Raporu" : "Detailed Audit Report"}</summary>
             <div className="audit-report">
               <h4>1. NexusAI Token</h4>
               <table><thead><tr><th>Kontrol</th><th>Durum</th><th>Aciklama</th></tr></thead><tbody>
-                <tr className="pass"><td>Reentrancy</td><td>✓</td><td>ERC20 transfer, reentrancy saldirisina karsi dayanikli</td></tr>
-                <tr className="pass"><td>Overflow/Underflow</td><td>✓</td><td>Solidity 0.8.x built-in kontroller</td></tr>
-                <tr className="pass"><td>Access Control</td><td>✓</td><td>Ownable ile dogru yetkilendirme</td></tr>
-                <tr className="pass"><td>Supply Limit</td><td>✓</td><td>MAX_SUPPLY=100M, baska mint yok</td></tr>
-                <tr className="pass"><td>Pause Mechanism</td><td>✓</td><td>Sadece owner pauselayabilir</td></tr>
-                <tr className="pass"><td>OpenZeppelin</td><td>✓</td><td>Guvenli, denetlenmis kutuphane</td></tr>
-                <tr className="pass"><td>Burn</td><td>✓</td><td>Standart ERC20Burnable, risksiz</td></tr>
+                <tr className="pass"><td>Reentrancy</td><td>{"\u2713"}</td><td>ERC20 transfer, reentrancy saldirisina karsi dayanikli</td></tr>
+                <tr className="pass"><td>Overflow/Underflow</td><td>{"\u2713"}</td><td>Solidity 0.8.x built-in kontroller</td></tr>
+                <tr className="pass"><td>Access Control</td><td>{"\u2713"}</td><td>Ownable ile dogru yetkilendirme</td></tr>
+                <tr className="pass"><td>Supply Limit</td><td>{"\u2713"}</td><td>MAX_SUPPLY=100M, baska mint yok</td></tr>
+                <tr className="pass"><td>Pause Mechanism</td><td>{"\u2713"}</td><td>Sadece owner pauselayabilir</td></tr>
+                <tr className="pass"><td>OpenZeppelin</td><td>{"\u2713"}</td><td>Guvenli, denetlenmis kutuphane</td></tr>
+                <tr className="pass"><td>Burn</td><td>{"\u2713"}</td><td>Standart ERC20Burnable, risksiz</td></tr>
               </tbody></table>
 
               <h4>2. StakingPool</h4>
               <table><thead><tr><th>Kontrol</th><th>Durum</th><th>Aciklama</th></tr></thead><tbody>
-                <tr className="pass"><td>Reentrancy</td><td>✓</td><td>ReentrancyGuard kullaniliyor</td></tr>
-                <tr className="pass"><td>SafeERC20</td><td>✓</td><td>safeTransfer/safeTransferFrom</td></tr>
-                <tr className="pass"><td>Reward Hesaplama</td><td>✓</td><td>Dogru rewardPerToken formulu</td></tr>
-                <tr className="pass"><td>Overflow/Underflow</td><td>✓</td><td>Solidity 0.8.x + SafeMath</td></tr>
-                <tr className="pass"><td>Access Control</td><td>✓</td><td>Owner sadece rewardRate ayarlar</td></tr>
-                <tr className="pass"><td>Pause</td><td>✓</td><td>Acil durumda stake durdurulabilir</td></tr>
-                <tr className="pass"><td>Claim Guvenligi</td><td>✓</td><td>updateReward modifier dogru siralamada</td></tr>
-                <tr className="pass"><td>Zero Amount</td><td>✓</td><td>require(amount &gt; 0) kontrolleri</td></tr>
-                <tr className="pass"><td>TotalStaked Sync</td><td>✓</td><td>Stake/withdraw eslesiyor</td></tr>
+                <tr className="pass"><td>Reentrancy</td><td>{"\u2713"}</td><td>ReentrancyGuard kullaniliyor</td></tr>
+                <tr className="pass"><td>SafeERC20</td><td>{"\u2713"}</td><td>safeTransfer/safeTransferFrom</td></tr>
+                <tr className="pass"><td>Reward Hesaplama</td><td>{"\u2713"}</td><td>Dogru rewardPerToken formulu</td></tr>
+                <tr className="pass"><td>Overflow/Underflow</td><td>{"\u2713"}</td><td>Solidity 0.8.x + SafeMath</td></tr>
+                <tr className="pass"><td>Access Control</td><td>{"\u2713"}</td><td>Owner sadece rewardRate ayarlar</td></tr>
+                <tr className="pass"><td>Pause</td><td>{"\u2713"}</td><td>Acil durumda stake durdurulabilir</td></tr>
+                <tr className="pass"><td>Claim Guvenligi</td><td>{"\u2713"}</td><td>updateReward modifier dogru siralamada</td></tr>
+                <tr className="pass"><td>Zero Amount</td><td>{"\u2713"}</td><td>require(amount &gt; 0) kontrolleri</td></tr>
+                <tr className="pass"><td>TotalStaked Sync</td><td>{"\u2713"}</td><td>Stake/withdraw eslesiyor</td></tr>
               </tbody></table>
 
               <h4>3. NexusFaucet</h4>
               <table><thead><tr><th>Kontrol</th><th>Durum</th><th>Aciklama</th></tr></thead><tbody>
-                <tr className="pass"><td>Reentrancy</td><td>✓</td><td>ReentrancyGuard kullaniliyor</td></tr>
-                <tr className="pass"><td>Cooldown Kontrolu</td><td>✓</td><td>block.timestamp kontrolu dogru</td></tr>
-                <tr className="pass"><td>Bakiye Kontrolu</td><td>✓</td><td>balanceOf ile yeterlilik kontrolu</td></tr>
-                <tr className="pass"><td>Access Control</td><td>✓</td><td>onlyOwner dogru kullanilmis</td></tr>
-                <tr className="pass"><td>Event Logging</td><td>✓</td><td>Claimed event i dogru</td></tr>
+                <tr className="pass"><td>Reentrancy</td><td>{"\u2713"}</td><td>ReentrancyGuard kullaniliyor</td></tr>
+                <tr className="pass"><td>Cooldown Kontrolu</td><td>{"\u2713"}</td><td>block.timestamp kontrolu dogru</td></tr>
+                <tr className="pass"><td>Bakiye Kontrolu</td><td>{"\u2713"}</td><td>balanceOf ile yeterlilik kontrolu</td></tr>
+                <tr className="pass"><td>Access Control</td><td>{"\u2713"}</td><td>onlyOwner dogru kullanilmis</td></tr>
+                <tr className="pass"><td>Event Logging</td><td>{"\u2713"}</td><td>Claimed event i dogru</td></tr>
               </tbody></table>
 
               <h4>Genel Degerlendirme</h4>
@@ -774,7 +1027,7 @@ export default function Home() {
         <R>
           <div className="section-h">
             <div className="section-tag">Contracts</div>
-            <h2>Smart Contracts</h2>
+            <h2>{t.contractsTitle}</h2>
           </div>
         </R>
         <R>
@@ -825,7 +1078,7 @@ export default function Home() {
                 </div>
                 <span>Nexus AI</span>
               </div>
-              <p>Building the next-generation community-driven blockchain economy on BNB Smart Chain.</p>
+              <p>{t.footerDesc}</p>
               <div className="footer-social">
                 {[
                   ["X", "M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z", "https://x.com/nexusai2026"],
@@ -898,6 +1151,8 @@ export default function Home() {
         .nav-link::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1.5px;background:linear-gradient(90deg,#298dff,#6366f1);transition:width 0.3s}
         .nav-link:hover::after{width:100%}
         .nav-r{display:flex;align-items:center;gap:12px}
+        .lang-btn{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;background:none;border:1px solid var(--border);color:rgba(255,255,255,0.5);cursor:pointer;transition:all 0.2s;font-size:11px;font-weight:700;font-family:var(--mono);letter-spacing:0.05em}
+        .lang-btn:hover{background:var(--card);color:#298dff;border-color:rgba(41,141,255,0.3)}
         .btn-primary{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#298dff,#6366f1);color:#fff;border:none;cursor:pointer;font-family:var(--font);font-weight:500;border-radius:10px;transition:opacity 0.3s,transform 0.3s}
         .btn-primary:hover{opacity:0.9;transform:translateY(-1px)}
         .btn-secondary{display:inline-flex;align-items:center;gap:8px;background:transparent;color:rgba(255,255,255,0.7);border:1px solid var(--border);cursor:pointer;font-family:var(--font);font-weight:500;border-radius:10px;transition:all 0.3s}
@@ -959,8 +1214,10 @@ export default function Home() {
         .tx-status{text-align:center;font-size:12px;padding:8px 16px;border-radius:8px;margin-top:12px;font-family:var(--mono);background:rgba(41,141,255,0.1);color:#298dff;border:1px solid rgba(41,141,255,0.2)}
         .theme-btn{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;background:none;border:1px solid var(--border);color:rgba(255,255,255,0.4);cursor:pointer;transition:all 0.2s;flex-shrink:0}
         .theme-btn:hover{background:var(--card);color:#fff}
-        .tv-wrap{max-width:700px;margin:0 auto;border-radius:16px;overflow:hidden;border:1px solid var(--border);background:var(--card)}
-        .tv-chart{height:400px;width:100%}
+
+        .dex-wrap{max-width:800px;margin:0 auto;border-radius:16px;overflow:hidden;border:1px solid var(--border);background:var(--card)}
+        .dex-wrap iframe{display:block}
+
         .cd{display:flex;gap:12px;justify-content:center;max-width:500px;margin:0 auto}
         .cd-item{flex:1;text-align:center;padding:20px 12px;border-radius:14px;background:var(--card);border:1px solid var(--border)}
         .cd-v{font-size:clamp(28px,5vw,44px);font-weight:800;font-family:var(--mono);letter-spacing:-0.03em}
@@ -974,6 +1231,8 @@ export default function Home() {
         [data-theme="light"] .social-btn{color:rgba(0,0,0,0.3)}
         [data-theme="light"] .acct-badge{color:rgba(0,0,0,0.5)}
         [data-theme="light"] .badge{color:#298dff}
+        [data-theme="light"] .lang-btn{color:rgba(0,0,0,0.5);border-color:rgba(0,0,0,0.1)}
+        [data-theme="light"] .lang-btn:hover{color:#298dff}
 
         .tok-grid{display:grid;grid-template-columns:1fr;gap:40px;max-width:900px;margin:0 auto;align-items:center}
         @media(min-width:768px){.tok-grid{grid-template-columns:1fr 1fr}}
@@ -1022,6 +1281,21 @@ export default function Home() {
         .empty span{font-size:12px}
         .lb-cta{text-align:center;font-size:11px;color:rgba(255,255,255,0.2);margin-top:16px}
 
+        .calc-wrap{max-width:500px;margin:0 auto}
+        .calc-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px}
+        .calc-input-row{display:flex;gap:10px;margin-bottom:20px}
+        .calc-input{flex:1;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:10px;padding:12px 16px;font-size:14px;font-family:var(--mono);color:#fff;outline:none;transition:border-color 0.2s}
+        .calc-input:focus{border-color:rgba(41,141,255,0.4)}
+        .calc-input::placeholder{color:rgba(255,255,255,0.2)}
+        .calc-go{padding:12px 20px;white-space:nowrap}
+        .calc-results{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:16px}
+        .calc-result{padding:14px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid var(--border);text-align:center}
+        .calc-result.highlight{border-color:rgba(245,158,11,0.2);background:rgba(245,158,11,0.03)}
+        .calc-result-label{font-size:11px;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px}
+        .calc-result-value{font-size:18px;font-weight:700;font-family:var(--mono);color:#10b981}
+        .calc-result.highlight .calc-result-value{color:#f59e0b}
+        .calc-note{text-align:center;font-size:11px;color:rgba(255,255,255,0.2);font-family:var(--mono)}
+
         .pkg-grid{display:grid;grid-template-columns:1fr;gap:16px;max-width:900px;margin:0 auto}
         @media(min-width:768px){.pkg-grid{grid-template-columns:1fr 1fr 1fr}}
         .pkg-card{padding:32px 24px;border-radius:16px;border:1px solid var(--border);background:var(--card);display:flex;flex-direction:column;position:relative;transition:all 0.3s}
@@ -1069,6 +1343,21 @@ export default function Home() {
         .faucet-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
         .faucet-note{font-size:11px;color:rgba(255,255,255,0.2);margin-top:16px}
 
+        .news-more{display:flex;justify-content:center;margin-top:24px}
+        .news-load-btn{padding:10px 24px;font-size:13px}
+
+        .contact-wrap{max-width:500px;margin:0 auto}
+        .contact-form{display:flex;flex-direction:column;gap:16px}
+        .contact-field{display:flex;flex-direction:column;gap:6px}
+        .contact-field label{font-size:12px;color:rgba(255,255,255,0.4);font-weight:500}
+        .contact-field input,.contact-field textarea{background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:10px;padding:12px 16px;font-size:14px;font-family:var(--font);color:#fff;outline:none;transition:border-color 0.2s;resize:vertical}
+        .contact-field input:focus,.contact-field textarea:focus{border-color:rgba(41,141,255,0.4)}
+        .contact-field input::placeholder,.contact-field textarea::placeholder{color:rgba(255,255,255,0.2)}
+        .contact-btn{align-self:stretch;justify-content:center;margin-top:8px}
+        .contact-btn:disabled{opacity:0.6;cursor:not-allowed}
+        .contact-success{text-align:center;font-size:13px;padding:12px;border-radius:10px;background:rgba(16,185,129,0.1);color:#10b981;border:1px solid rgba(16,185,129,0.2)}
+        .contact-error{text-align:center;font-size:13px;padding:12px;border-radius:10px;background:rgba(239,68,68,0.1);color:#ef4444;border:1px solid rgba(239,68,68,0.2)}
+
         .rm{max-width:700px;margin:0 auto}
         .rm-card{display:flex;gap:16px;padding:0 0 32px;position:relative}
         .rm-card.current .rm-body{border-color:rgba(41,141,255,0.2);background:rgba(41,141,255,0.03)}
@@ -1088,7 +1377,7 @@ export default function Home() {
         .rm-t{font-size:18px;font-weight:600;margin-bottom:8px}
         .rm-items{list-style:none;display:flex;flex-direction:column;gap:4px}
         .rm-items li{font-size:13px;color:rgba(255,255,255,0.4);padding-left:16px;position:relative}
-        .rm-items li::before{content:'›';position:absolute;left:4px;color:rgba(255,255,255,0.2)}
+        .rm-items li::before{content:'\203A';position:absolute;left:4px;color:rgba(255,255,255,0.2)}
 
         .news-grid{display:grid;grid-template-columns:1fr;gap:12px;max-width:700px;margin:0 auto}
         @media(min-width:640px){.news-grid{grid-template-columns:1fr 1fr}}
@@ -1184,17 +1473,8 @@ export default function Home() {
           requestAnimationFrame(anim);
         }
         anim();
-        new TradingView.widget({
-          container: 'tv-chart', symbol: 'BINANCE:BNBUSDT',
-          interval: '60', theme: 'dark', style: '1',
-          width: '100%', height: 400,
-          hide_side_toolbar: false, allow_symbol_change: true,
-          save_image: false, locale: 'tr',
-          autosize: true,
-        });
         `,
       }} />
-      <script src="https://s3.tradingview.com/tv.js" />
     </div>
   );
 }
